@@ -1,0 +1,26 @@
+---
+title: "Experience Report"
+author: "Miaomiao Niu"
+date: "4/27/2018"
+output: html_document
+---
+
+I participate in wxmp-web development team, who develops WeChat official account web management tool, wxmp-web. I contribute to project mainly by conducting user investigation and writing Chinese-English bilingual document. 
+
+## My Participation and Experience
+
+1.User questionnaire investigation and user experience analysis
+
+When I joined the wxmp-web team, they were trying to develop a new version website. I contributed to the project by conducting a user survey to understand the user experience and provide more improvement advices. The questionnaire can be access at https://wj.qq.com/s/2050322/c167.
+
+At first, I designed the questions of the survey according to the wxmp-web’s functions and user needs. The other members helped me to revise the questions and invited users to involve in the investigation. I received 43 replies.  Then I analyzed the result and wrote the analysis report. According to the user analysis, the longer and more frequently user use wechat official account, less satisfied would they be to wxmp-web, which means the development team should focus more on user needs and develop the project. It is interesting that the result shows that users think the website stability requires to be improved, the interface should be more pretty, the applet function management should be added and more user guidance would improve the user experience. After the survey finished, I shared the survey data and analyzed the report with other team members. We discussed this user survey in QQ group. The user research provides clear guidance for the development team to improve the website’s new version and make a better product. Just like the leader of the programmers said, "user research is helpful".
+
+2.Chinese-English Bilingual document 
+
+I contributed to design the English version by writing a Chinese-English bilingual document for the website, which translates the related Chinses proper nouns to English. I realize that more and more people from all over the world become interested in WeChat and some of them are trying to share opinions by using official account. However, they cannot find an official account management tool. For example, a Korean friend told me that he really hopes to manage an official account, but even if he studies in China and he is familiar with Chinese, language is a problem for him. Since English is the most widely used language in the world, it would be better if there is an English version official account management tool. In this way, wxmp-web would help more people as an open source project. I recommended that the wxmp-web group could develop an English version and other members agreed with me. To deal with the conflict that generate from translation differences during the development process, I wrote the first version Chinese-English bilingual document and shared in QQ group public folder. The other members revise and modify the document continuously. The programmers told me that the Chinese-English bilingual document would help them keep consistency in the English version.
+
+## Conclusion
+
+At the beginning, I expected to learn more programming skills. However, the actual experience is different from my expectation. As a new learner, it is difficult for me to learn Java in the short time and I cannot provide technical support for the other experienced developer.  I was frustrated. After chatting with the leader developer, I found that the group needed to understand user needs and was lacking user experience developer.  I am also interested in this kind of work. So, I decided to interject myself into the user research and demonstrate my value. My motivation changed according to my interest, ability and the need of the group. Although I contributed to the project in the different way, I experienced how to develop an open source software in peer production way. Members are motivated by different motivations and perform different tasks in the community according to their own interests and abilities. For example, wxmp-web includes programmers, designer, new learners and so on. The major members will invest more time and energy into the project to develop the project and manage the team, while other members also play their part. It is a great experience for me to get involved in an open source project and make it better. I benefit a lot from the passion and the sharing spirit in this group.
+
+
