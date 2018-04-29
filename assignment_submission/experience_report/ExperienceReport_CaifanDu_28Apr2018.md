@@ -11,7 +11,7 @@ The software and scripts recommended by the project affect my editing practice i
 The actual work process is restructured through my selective use of the tools and I finished more tasks smoothly than I expected. I also have had a glance at the Wikipedia behind the scenes and obtained some helpful tools to enhance my experience on Wikipedia as bonuses during the participation. Naturally, my engagement in the community is encouraged by the positive outcome, so I would like to stay and now have new expectations for further exploration.
 
 ### Reference
-Wikipedia: AutoEd (2017). Retrieved from https://en.wikipedia.org/wiki/Wikipedia:AutoEd.
+Wikipedia: AutoEd (n.d.). Retrieved from https://en.wikipedia.org/wiki/Wikipedia:AutoEd.
 
 Wikipedia: AutoWikiBrowser (2017). Retrieved from https://en.wikipedia.org/wiki/Wikipedia:AutoWikiBrowser.
 
