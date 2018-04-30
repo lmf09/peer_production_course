@@ -12,9 +12,13 @@ Normally, translating a book is a privilege, and gaining the privilege often req
 Besides getting the translator account set up, in order to contribute, I need to learn the usage of [Subversion](http://subversion.apache.org) and more importantly, the book is written in xml format, I ought to figure out the basic structure of these xml files. Nonetheless, these are easier than I thought.
 
 ## Enjoy the Cooking
-To begin with, I checked the contribution history to make sure the
+To begin with, I checked the contribution history (you can check it [here](http://viewvc.red-bean.com/producingoss/trunk/?view=log)) to make sure whether or not I have teammates to cooperate with. If so, I can work on chapters that I already read. However, it turned out that I would fight alone, which makes it less fun. In spite of that, I thought I could finish the translation work myself, at least before version 3 (if there is). So, I chose to start from the acknowledge part of the book instead of focusing on a couple of chapters. Once I started my journey, I found translating is not as easy as reading and more often than not, it takes lots of time to come up with suitable words just for some idioms. Still, it's worthwhile especially when I made the first commit command and surprisingly, the Chinese version pages are updated accordingly without any confirmation, which is quite different from what I expected (the _pull request_ way). Till then, I knew why it's a privilege to be a translator in this open source project, that's for the convenience of commit command. The author _Karl Fogel_ is the "Benevolent Dictator"[1] here,
 
 ## Standing On the Shoulders of Giants
 
+
 ## Why Am I Lazy?
 Like I mentioned before, I really enjoy reading this book. However, translating is not as easy as reading.
+
+
+[1]:  Chapter 4 “Social and Political Infrastructure” from Fogel, Karl (2018) “Producing OSS: How to Run a Successful Free Software Project” [](https://producingoss.com/en/social-infrastructure.html)
