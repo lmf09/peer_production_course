@@ -12,7 +12,7 @@ Normally, translating a book is a privilege, and gaining the privilege often req
 Besides getting the translator account set up, in order to contribute, I need to learn the usage of [Subversion](http://subversion.apache.org) and more importantly, the book is written in xml format, I ought to figure out the basic structure of these xml files. Nonetheless, these are easier than I thought.
 
 ## Enjoy the Cooking
-To 
+To begin with, I checked the contribution history to make sure the
 
 ## Standing On the Shoulders of Giants
 
