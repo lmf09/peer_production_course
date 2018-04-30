@@ -1,0 +1,22 @@
+# Peer Production Participation Project
+
+## Wiki Transcripts
+
+The subject of this participation activity is transcripts.wikia.com, a peer production community where fans collaborate and contribute to writing transcripts for movies and TV shows which do not have their official transcripts released. I undertook the task of rectifying mistakes in the structure as well as content of the transcripts of the Harry Potter movie franchise, a series of 8 movies.
+The process of participation by editing was undertaken in three steps. The first step involved fixing the structure of the transcripts. I built a parser in python that classified the text into the following json structure-
+
+> Scene {
+>
+> Description, Dialogue {
+>
+> Character, Line
+>
+> }
+>
+> }
+
+The parser scans the document and picks up delimiters like {}', '()', '[]', and ':'. The parentheses describe whether a text is a scene description or a dialogue. The colon separates the person who speaks a line and the line spoken. The parser raised exceptions every time the above structure was not met, thus informing me about the flaws in the structure of the transcript. These raised exceptions were manually fixed by logging on to the website and performing edits. In the transcripts, the characters were referred by their first names in some places, and with their last names elsewhere. The second step involved creating a database of the full names of the characters. A function in the parser cross referenced the names against the ones in the transcript texts, and notified for edits. These edits were manually performed by changing all references of first names to the last names of the characters. The third step involved fixing the content of the transcripts. I consider myself to be an avid fan of the Harry Potter franchise and I am familiar with the movies. I attempted to fix as many flaws in the transcripts' content as I could encounter.
+
+The community's website displays a dialog box every time an attempt is made to save an edit. This dialog box requests the contributor to summarize the change, and allows a checkbox to denote whether the change was a minor edit. The change is immediately reflected on the transcript. I tried making an irrelevant edit and I received an email in a day informing me that the edit had been taken down by another user (whose name was left anonymous). The email contained an explanation of the action taken as well. I tried selecting the minor edit option for an irrelevant edit; it was accepted without rectification and has not been taken down. However, the minor edit did not appear on my profile under the list of edits.
+
+The above experiments depict an interesting perspective to the peer production of the community. The active rectification of wrongful edits shows the prompt functioning of the community without having a governing body. However, minor edits are not subjected to a similar scrutiny. The community allows a certain degree of trust on its members to adhere to standards that do not demean the value of the content. The effort of manually fixing content was much more exhausting than anticipated. I posted the algorithm of the parser in the discussion forum for future reference, as the ownership of my parser code was divided between my project's team members.
