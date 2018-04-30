@@ -20,7 +20,7 @@ No one translated the acknowledgement part for the second edition before, theref
 ## Why Am I Still Lazy After Good Governance Methods?
 So far, I just finished chapter one and acknowledgement part of the book. Although no one except me can say "Sifan is lazy" because it's an open source project and I made no promises, I still believe I can be more productive.
 
-Author _Karl Fogel_, the "Benevolent Dictator"[1] of this project, made a wise move by choosing the SVN. I guess he can't understand all languages, so it makes no sense for him to review the changes in other languages. He could only rely on readers' feedback and it's the same for contributors after we modify the files. Also, making participation a privilege would change the view that contributors consider themselves.
+Author _Karl Fogel_, the "Benevolent Dictator"[1] of this project, made a wise move by choosing the SVN. I guess he can't understand all languages, so it makes no sense for him to review the changes in other languages. He could only rely on readers' feedback and it's the same for contributors after we modify the files. As far as I'm concerned, receiving no reply is part of reason why I was less productive than I could. Also, making participation a privilege would change the view that contributors consider ourselves. It makes me cherish the opportunity of participation and I would stick to it no matter how lazy I am.
 
 
 
