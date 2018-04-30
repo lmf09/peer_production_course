@@ -31,5 +31,5 @@ Also, making participation a privilege would change the view that contributors c
 
 
 
-
+# Reference
 [1]:  Chapter 4 “Social and Political Infrastructure” from Fogel, Karl (2018) “Producing OSS: How to Run a Successful Free Software Project” [link](https://producingoss.com/en/social-infrastructure.html)
