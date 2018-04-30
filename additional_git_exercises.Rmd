@@ -310,6 +310,21 @@ README          first_set_file  first_set_file2
 
 So now if we create pull requests from each of those branches, they'll contain just the content we wanted in each of them. Hurray.
 
+## Exercise:
+
+Groups of 2 or 3. Nominate Person A, B, (and C).
+
+1. Person A creates a repo on Github.
+2. Person A adds 2 commits and pushes.
+3. Person B and C fork and clone (and adds upstream).
+4. Person B and C add four commits of four files on their master.
+5. Person B and C create a pull request to "upstream" with all four commits.
+6. Person A rejects the pull request, closing it and commenting "please split this up" (and direct which files go together, probably 2 in each.)
+7. Person B and C follow procedure above to end up with two additional pull requests with just the right commits/files in them.
+8. Person A eventually accepts each of the split up pull requests.
+
+## Dealing with extra commits
+
 Now we just have to consider what to do about the additional commits on `master`.  This is going to depend on a few things. Do you have additional commits on `master` that you haven't distributed among new branches? Do you want `master` to exactly reflect the history of `master` on `upstream`? How tolerant are you of "messy history"?  It's also going to depend on whether `master` had been pushed up and whether others might have built on top of it.
 
 There are many options, here are two:
