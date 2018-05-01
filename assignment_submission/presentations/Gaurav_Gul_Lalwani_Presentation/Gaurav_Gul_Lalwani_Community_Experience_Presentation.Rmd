@@ -1,0 +1,94 @@
+---
+title: "WikiProject Databases"
+author: Gaurav Lalwani
+date: May 01, 2018
+output: 
+  ioslides_presentation:
+    incremental: true
+---
+<style>
+slides {
+    font-color: black;
+    background-color: powderblue;
+    width:100%;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction 
+
+> - Open Source Community
+
+> - Wikipedians work together to improve Wikipedia
+
+> - Create an account and become a Wikipedian
+
+> - Different backgrounds contribute together
+
+```{r, out.width = "500px",out.height ="300px"}
+knitr::include_graphics("peer_sc_4.png")
+```
+
+## Contribution 
+
+> - Editing popular Wikipages
+
+```{r, out.width = "800px",out.height ="100px"}
+knitr::include_graphics("peer_sc_1.jpg")
+```
+
+> - Undo/Thank user contributions
+
+> - Peer Review of published material
+
+> - Contribution to the talk page
+
+> - Completion of open tasks
+
+
+## Assessment
+
+> - No intial review before publishing
+
+> - Barnstars
+
+> - Popular pages
+
+```{r, out.width = "800px",out.height ="100px"}
+knitr::include_graphics("peer_sc_2.jpg")
+```
+
+
+> - Symbol of excellence
+
+```{r, out.width = "800px",out.height ="100px"}
+knitr::include_graphics("peer_sc_3.jpg")
+```
+
+
+## Community Portal
+
+> - Database of all WikiProjects
+
+> - Worked on small open issues
+
+```{r, out.width = "800px",out.height ="200px"}
+knitr::include_graphics("peer_sc_5.jpg")
+```
+
+> - Felt a part of something big
+
+## Conclusion
+
+> - Connecting people across globe
+
+> - Evidence before thoughts
+
+> - Change in perspective
+
+### Improvements
+
+> - To include initial assessment before publishing on main page
