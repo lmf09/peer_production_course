@@ -1,0 +1,128 @@
+---
+title: "A Lonely Translator"
+author: "Sifan Guo"
+date: "May 1st, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## An Eye-Opening Book
+The book _Producing Open Source Software_ is really fascinating, author _Karl Fogel_ uses many analogies in this book, which is my favorite writing style, hence translating it along with reading it is enjoyable for me.
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/book_description.png")
+```
+(The the screenshot of <https://producingoss.com/>)
+
+## Before Contribution
+
+- Apply For An Account
+
+
+## Before Contribution
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/contact_author.png")
+```
+(The screenshot of <https://producingoss.com/feedback.html>)
+
+## Before Contribution
+
+- Apply For An Account
+- Learn Subversion(SVN)
+
+## Before Contribution
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/guidelines.png")
+```
+(The screenshot of <https://producingoss.com/translations.html#guidelines>)
+
+
+## Before Contribution
+
+- Apply For An Account
+- Learn Subversion(SVN)
+- Get Familiar with XML
+
+## Before Contribution
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/XML.png")
+```
+
+## Start the Journey
+
+
+## Start the Journey
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/getting_started.png")
+```
+
+## My Favorite Part
+
+
+## My Favorite Part
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/acknowledgement.png")
+```
+
+## Standing On the Shoulders of Giants
+
+
+## Standing On the Shoulders of Giants
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/chapter1.png")
+```
+
+## Standing On the Shoulders of Giants
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/chapter1.png")
+```
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What does this look like?
+
+## Spot the Difference
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/spot_difference.png")
+```
+(Source: Japan Wikipedia)
+
+## Why Am I "Lazy"?
+
+
+## Why Am I "Lazy"?
+
+```{r, out.width = "760px"}
+knitr::include_graphics("images/viewvc.png")
+```
+(The screenshot of <br><http://viewvc.red-bean.com/producingoss/trunk/?view=log>)
+
+## Why Am I "Lazy"?
+
+- No Instant Feedback
+
+
+## Why Am I "Lazy"?
+
+- No Instant Feedback
+- No Deadline
+
+## &nbsp;
+### &nbsp;
+### &nbsp;
+### &nbsp;
+### &nbsp;
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank You for Watching!
+
+
+
+
