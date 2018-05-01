@@ -1,0 +1,42 @@
+---
+title: "Peer Production Presentation"
+author: "Akanksh K Narayana"
+date: "30 April 2018"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Introduction
+
+- Topic chosen - Wikiproject: Human-Computer Interaction(HCI).
+- HCI - Field that focuses on the design of computer technology, in particular, interaction between the human and the computer.
+- Consists of article related to HCI.
+- Also consists of articles to related fields like User Experience(UX), Interaction Design.
+
+# Process
+
+- Has an 'Ongoing-Tasks' section in the main page, which explains what the task is and how to contribute to it.
+- Talk page: New users introduce themselves. Add new articles related to HCI
+- Contribution page - Provides a list of contributions of a user.
+- Discussion page - Page for discussing new categories to be created or merging categories.
+
+# My Contribution
+
+- I added content to the background section of the main page.
+- It was not reviewed and the changes got published immediately.
+- I edited articles in the following categories namely Card sorting and User Experience(UX)
+- Created an article related to eye tracking. The article appeared in the category talk page.
+- {{WikiProject Human-Computer Interaction}} should be included at the top of the article to link it to this Wikiproject.
+
+# Recommendations
+
+- A page for the users to interact with each other.
+- Collaboration would be easier.
+- Large open tasks can be broken down into smaller tasks.
+- More instructions to new users regarding adding and editing articles,categorizing articles and adding references
+- A moderator to look after the page, since many articles are out of place.
