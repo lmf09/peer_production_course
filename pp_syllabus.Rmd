@@ -181,12 +181,15 @@ readings <- tribble(
   "Datacamp Rmarkdown - All 4 chapters",
     "https://campus.datacamp.com/courses/reporting-with-r-markdown/chapter-one-authoring-r-markdown-reports",
     "Executable Papers",
-  "Marking your work with a CC license",
-    "https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license",
-    "Machine Readable Creative Commons Licenses",
-  "CC Best practices for attribution",
-    "https://wiki.creativecommons.org/wiki/Best_practices_for_attribution",
-    "Machine Readable Creative Commons Licenses"
+  # "Marking your work with a CC license",
+  #   "https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license",
+  #   "Machine Readable Creative Commons Licenses",
+  # "CC Best practices for attribution",
+  #   "https://wiki.creativecommons.org/wiki/Best_practices_for_attribution",
+  #   "Machine Readable Creative Commons Licenses",
+  "Additional Git Exercises",
+    "additional_git_exercises.html",
+    "Rewinding Git and additional exercises"
 )
 
 insight_readings <- tribble(
@@ -375,7 +378,7 @@ skills_topics <- tribble(
   "Documentation and Q&A", "github flavored markdown", 
   "Wikipedia Editing", "wiki syntax, referencing", 
   "Executable Papers", "rmarkdown, knitr, rstudio", 
-  "Rewinding Git", "git revert, rebase, cherry-pick"
+  "Rewinding Git and additional exercises", "git revert, rebase, cherry-pick"
   # "Machine Readable Creative Commons Licenses", "CC web tools and xml"
 ) %>% rownames_to_column()
 
