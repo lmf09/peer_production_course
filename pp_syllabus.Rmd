@@ -3,6 +3,7 @@ title: "Syllabus for Peer Production (Open Source Software, Wikipedia, & Beyond)
 author: "James Howison"
 subtitle: INF 385T - Special Topics in Information Science
 output:
+  
   html_document:
     toc: yes
     toc_depth: 2
@@ -27,7 +28,7 @@ header <- tribble(
   ~`Course`, ~`INF 385T Peer Production (Open Source Software, Wikipedia, and Beyond)`,
   #----------------
   "Professor", "James Howison",
-  "Meeting Time", "Tuesdays 9—11:45am",
+  "Meeting Time", "Wednesdays 12—2:45pm",
   "Location", "UTA 1.208",
   "Semester", "Fall 2019",
   "Unique No.", "27295",
@@ -475,7 +476,7 @@ format_datetime <- function(x, format) { strftime(as.POSIXct(x), format, tz=lubr
 
 meetings %>% 
   mutate(class_day = format_datetime(class_day, format = "%a %b %d")) %>% 
-  mutate(class_day = cell_spec(class_day, "html", color = ifelse(meets == TRUE, "green", "red"))) %>% 
+   mutate(class_day = cell_spec(class_day, "html", color = ifelse(meets == TRUE, "green", "red"))) %>% 
   select(-meets) %>% 
   replace_na(list(skill_topic = "none", insight_topic = "none", tech_commands = "none")) %>% 
   kable("html", escape = FALSE) %>% 
