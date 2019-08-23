@@ -28,9 +28,9 @@ header <- tribble(
   #----------------
   "Professor", "James Howison",
   "Meeting Time", "Tuesdays 9—11:45am",
-  "Location", "UTA 1.212",
-  "Semester", "Spring 2018",
-  "Unique No.", "27310",
+  "Location", "UTA 1.208",
+  "Semester", "Fall 2019",
+  "Unique No.", "27295",
   "Office Hours", "By appointment (please email)",
   "Contact Email", "jhowison@ischool.utexas.edu"
 )
@@ -38,7 +38,8 @@ library(knitr)
 ```
 
 ```{r header_output}
-kable(header)
+kable(header) %>% 
+  kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
 
 # Objectives and Assignments
@@ -49,9 +50,11 @@ This course explores "peer production" which is a name for the open collaboratio
 
 As we learn about peer production we'll learn to distinguish it from different kinds of online collaborations, such as crowdsourcing, citizen science, question and answer sites, and mere sharing of code. Near synonyms for the way of working taught in this course are: "The open source way", "Open collaboration", "Open mass production".
 
-This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration). 
+This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration). 
 
 There are no pre-requistes for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use `git` and `github` everything will be covered in class.
+
+Students will need access to a computer for classes, any version of Windows, Mac, or Linux will do.  Systems can be borrowed from the iSchool lab if needed.
 
 ## Learning Objectives
 
@@ -66,7 +69,6 @@ Practically students will be able to:
 - Install and use `git` to manage versions in their own work
 - Participate in `github` hosted peer production (making and receiving pull requests)
 - Create and publish documents in `markdown` and `wikitext` format
-- Apply a machine-readable Creative Commons license to works
 - Ask technical questions that people want to answer
 - Participate in a peer production project of their choice
 
@@ -77,15 +79,16 @@ assessments <- tribble(
   ~`Assignment`, ~`Percentage of Course Grade`,~`Due Date`,
   #-----------------------
   "Class Participation (discussion and activites)", "25%", "Throughout course",
-  "Technical challenges", "25%", "Weekly from Jan 30 through March 6",
-  "PP Participation Project: community identification", "10%", "Sun 25 March at 11:59pm",
-  "Peer production adaptation paper", "20%", "Sun 8 April at 11:59pm",
-  "PP Participation Project: experience report", "10%", "Sun 29 April at 11:59pm",
-  "PP Participation Project: presentation", "10%", "Final class, May 1"
+  "Technical challenges", "25%", "Weekly from Content Class 1 through Content Class 6",
+  "PP Participation Project: community identification", "10%", "Prior to Content Class 3",
+  "Peer production adaptation paper", "20%", "Prior to Content Class 7",
+  "PP Participation Project: experience report", "10%", "Prior to Final Class",
+  "PP Participation Project: presentation", "10%", "Final Class"
 )
 ```
 ```{r assessment_output}
-kable(assessments)
+kable(assessments) %>% 
+  kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
 There is no final exam for this course. 
 
@@ -95,13 +98,22 @@ Grading will follow Texas Information School recommendations (including A, A-, B
 
 Students are expected to attend class and to participate in discussion and activities. Students should email the professor prior to class if they cannot make it. Material throughout the course builds on earlier material (both technical and conceptual). If you cannot make class you should refer to the online materials first and then consult with your classmates. Office hours are not for personal replays of teaching, nor can they compensate for not participating in discussion.
 
+Hints on participation:
+
+- Useful participation can come from asking questions if you don't understand the point someone is making. If you have questions, very likely others do to.
+- You can also summarize discussion which helps everyone by giving them something to test their understanding of the discussion.
+- You can challenge or disagree with people, sometimes that can be introducing a counter-example or questioning whether evidence really means what the speaker originally thought.
+- I really welcome examples from your own experience. For example if there is an organization, movement, or line of thought in your culture that relates to peer production, I would love that to be part of the discussion.
+- You can echo comments of others that you agree with, saying (for example), "Yes, I really appreciate that you brought that up" or (echoing an online discussion habit in peer production), "Plus one!"
+
+
 ### Technical Challenges
 
 The course will have assignments based on the technical topics we are learning, including use of the DataCamp course (see below).
 
 ### Peer production adaptation paper
 
-For this assignment students will write a 2,000 word scholarly essay describing and analyzing efforts to adapt peer production outside of software development and wikipedia. Examples could include open hardware, open governance, open culture, and everyone is encouraged to find a project relevant to their own interests. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". Students will conduct at least one interview with participants (or former participants if the effort is no longer continuing). The paper will also describe the collaboration infrastructure and compare it to the technologies we have learned in class).
+For this assignment students will write a 2,000 word scholarly essay describing and analyzing efforts to adapt peer production outside of software development and wikipedia. Examples could include open hardware, open governance, open culture, and everyone is encouraged to find a project relevant to their own interests. You are looking for ways of working inspired by peer production. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". Students will conduct at least one interview with participants (or former participants if the effort is no longer continuing). The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class).
 
 The paper will be authored in Markdown and submitted via a pull request to the class github.
 
@@ -187,9 +199,9 @@ readings <- tribble(
   # "CC Best practices for attribution",
   #   "https://wiki.creativecommons.org/wiki/Best_practices_for_attribution",
   #   "Machine Readable Creative Commons Licenses",
-  "Additional Git Exercises",
-    "additional_git_exercises.html",
-    "Rewinding Git and additional exercises"
+  # "Additional Git Exercises",
+  #   "additional_git_exercises.html",
+  #   "Rewinding Git and additional exercises"
 )
 
 insight_readings <- tribble(
@@ -378,7 +390,7 @@ skills_topics <- tribble(
   "Documentation and Q&A", "github flavored markdown", 
   "Wikipedia Editing", "wiki syntax, referencing", 
   "Executable Papers", "rmarkdown, knitr, rstudio", 
-  "Rewinding Git and additional exercises", "git revert, rebase, cherry-pick"
+  # "Rewinding Git and additional exercises", "git revert, rebase, cherry-pick"
   # "Machine Readable Creative Commons Licenses", "CC web tools and xml"
 ) %>% rownames_to_column()
 
@@ -396,7 +408,7 @@ insight_topics <- tribble(
   "Bias and lack of diversity",
   "Peer production in Wikipedia",
   "Peer production in Science",
-  ""
+  # ""
   # "Peer production in Art and Culture"
 ) %>% rownames_to_column()
 
@@ -422,17 +434,18 @@ expand_days <- function(start, end) {
 no_meetings <- tribble(
   ~period_start, ~period_end, ~class_name,
   #--------------------
-  "2018-01-16", "2018-01-17", "No meeting: Weather Cancellation",
-  "2018-03-12", "2018-03-17", "No meeting: Spring break"
-  # "2018-03-24", "2018-03-29", "No meeting: iConference"
+ #  "2019-10-22", "2019-10-23", "No meeting: Professor travel",
+   "2019-11-27", "2019-11-30", "No meeting: Thanksgiving Break",
+ 
+  "2019-11-05", "2019-11-08", "No meeting: Professor research travel" 
 ) %>% 
   mutate(days_list = map2(period_start, period_end, expand_days)) %>% 
   select(class_name, days_list) %>% 
   unnest() 
 
-first_class_day = parse_datetime("2018-01-16")
+first_class_day = parse_datetime("2019-08-28")
 
-last_class_day = parse_datetime("2018-05-04")
+last_class_day = parse_datetime("2019-12-09")
 
 # class Tuesday 9-11:45
 all_tuesdays <- seq(first_class_day, to = last_class_day, by = "week")
@@ -550,11 +563,11 @@ Professional courtesy and sensitivity are especially important with respect to i
 
 If you want to drop a class after the 12th class day, you'll need to execute a Q drop before the Q-drop deadline, which typically occurs near the middle of the semester. Under Texas law, you are only allowed six Q drops while you are in college at any public Texas institution. For more information, see: http://www.utexas.edu/ugs/csacc/academic/adddrop/qdrop
 
-International students *must* [meet with the international office](https://world.utexas.edu/isss/visa/maintain/student) before dropping a class that would put them below full-time status. 
+International students *must* [meet with the international office](https://world.utexas.edu/isss/visa/maintain/student) before dropping a class that would put them below full-time status. Although it is worth noting that there are legitimate reasons that allow International students to be below full-time status, so if you think you are failing a course (or just performing below your expectations) don't make assumptions either way, speak with the international office to discover your options.
 
 ## University Resources for Students
 
-Your success in this class is important to me. We will all need accommodations because we all learn differently. If there are aspects of this course that prevent you from learning or exclude you, please let me know as soon as possible. Together we'll develop strategies to meet both your needs and the requirements of the course. There are also a range of resources on campus, detailed below.
+Your success in this class is important to me. We will all need accommodations at different times because we all learn differently. If there are aspects of this course that prevent you from learning or exclude you, please let me know as soon as possible. Together we'll develop strategies to meet both your needs and the requirements of the course. There are also a range of resources on campus, detailed below.
 
 ### Services for Students with Disabilities
 
@@ -578,9 +591,10 @@ All students, including graduate students, are welcome to take advantage of Sang
 
 ### Important Safety Information
 
-If you have concerns about the safety or behavior of fellow students, TAs or Professors, call BCAL (the Behavior Concerns Advice Line):  512-232-5050. Your call can be anonymous.  If something doesn’t feel right – it probably isn’t.  Trust your instincts and share your concerns.
+If you have concerns about the safety or behavior of fellow students, TAs or Professors, call BCAL (the Behavior Concerns Advice Line):  512-232-5050. Your call can be anonymous.  If something doesn’t feel right—it probably isn’t.  Trust your instincts and share your concerns.
 
 The following recommendations regarding emergency evacuation from the Office of Campus Safety and Security, 512-471-5767, http://www.utexas.edu/safety/
+
 Occupants of buildings on The University of Texas at Austin campus are required to evacuate buildings when a fire alarm is activated. Alarm activation or announcement requires exiting and assembling outside.
 
 - Familiarize yourself with all exit doors of each classroom and building you may occupy. Remember that the nearest exit door may not be the one you used when entering the building.
