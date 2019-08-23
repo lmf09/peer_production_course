@@ -1,2 +1,0 @@
-Project URL :
-https://www.seleniumhq.org/docs/01_introducing_selenium.jsp

@@ -1,4 +1,0 @@
-lion yellow
-tiger red
-leopard blond
-turtle green
