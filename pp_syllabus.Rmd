@@ -85,7 +85,7 @@ assessments <- tribble(
   #-----------------------
   "Class Participation (discussion and activites)", "25%", "Throughout course",
   "Technical challenges", "25%", "Weekly from Content Class 1 through Content Class 6",
-  "PP Participation Project: community identification", "10%", "Prior to Content Class 3",
+  "PP Participation Project: community identification", "10%", "Prior to Content Class 4",
   "Peer production adaptation paper", "20%", "Prior to Content Class 7",
   "PP Participation Project: experience report", "10%", "Prior to Final Class",
   "PP Participation Project: presentation", "10%", "Final Class"
