@@ -21,7 +21,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(kableExtra)
-
+library(fontawesome)
 library(tidyverse)
 library(glue)
 header <- tribble(
@@ -32,7 +32,7 @@ header <- tribble(
   "Location", "UTA 1.208",
   "Semester", "Fall 2019",
   "Unique No.", "27295",
-  "Office Hours", "By appointment (please email)",
+  "Office Hours", "Definitely, by appointment (please email first, then can meet in person, on phone, by email as best for you)",
   "Contact Email", "jhowison@ischool.utexas.edu"
 )
 library(knitr)
@@ -47,7 +47,9 @@ kable(header) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
 
-# Objectives and Assignments
+# Objectives and Assignments 
+
+[!(`r fa('link')`)](#objectives-and-assignments)
 
 This course explores "peer production" which is a name for the open collaborations that produce things like open source software and Wikipedia.  Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful: 
 
@@ -128,11 +130,11 @@ Students will identify and participate in an active peer production community of
 
 There are three graded components, each to be submitted via a pull request.
 
-1. Identifying and describing a peer production community. ~500 words. Authored in plain text or markdown. This paper should clearly identify the community and argue for it being a peer production community. The paper should describe how the student thinks the peer production community works and their expectations about participation.
+1. Identifying and describing a peer production community. ~500 words. Authored in plain text or markdown. This paper should clearly identify the community and argue for it being a peer production community. The paper should describe how the student thinks the peer production community works and their expectations about participation. Submit PDF directly to Canvas assignment.
 
-2. Participating and describing that participation in an experience report of ~500 words, authored in Markdown. Students should describe their experience in the project. At a minimum the paper should desribe the work done, how it was contributed, as well as whether and how the work was reviewed. Students should compare their experience with their expectations described in the first paper. Submit via a pull request from a branch created just for this submission (ie not master). Due Sunday night.
+2. Participating and describing that participation in an experience report of ~500 words, authored in Markdown. Students should describe their experience in the project. At a minimum the paper should desribe the work done, how it was contributed, as well as whether and how the work was reviewed. Students should compare their experience with their expectations described in the first paper. Submit via a pull request from a branch created just for this submission (ie not master), and post that URL to the Canvas assignment.
 
-3. Creating and giving a presentation on their participation. Presentations are limited to 5 minutes, this should be approx 4-6 slides long and be authored using Markdown that produces slides. Presentations will occur in our final class meeting. Submit via a pull request from a branch created just for this submission (ie not master). Due at 6pm Monday.
+3. Creating and giving a presentation on their participation. Presentations are limited to 5 minutes, this should be approx 4-6 slides long and be authored using Markdown that produces slides. Presentations will occur in our final class meeting. Submit via a pull request from a branch created just for this submission (ie not master), and post that URL to the Canvas assignment.
 
 ## Materials
 
@@ -282,9 +284,9 @@ insight_readings <- tribble(
   "Section on Motivations in: Crowston, K., Wei, K., Howison, J., & Wiggins, A. (2012). Free (Libre) Open Source Software Development: What We Know and What We Do Not Know. ACM Computing Surveys, 44(2), Article 7.",
     "https://doi.org/10.1145/2089125.2089127",
     "Motivations",
-  "Lee, A., Carver, J. C., & Bosu, A. (2017). Understanding the Impressions, Motivations, and Barriers of One Time Code Contributors to FLOSS Projects: A Survey. In Proceedings of the 39th International Conference on Software Engineering (pp. 187–197). Piscataway, NJ, USA: IEEE Press.",
-  "https://doi.org/10.1109/ICSE.2017.25",
-  "Motivations",
+  # "Lee, A., Carver, J. C., & Bosu, A. (2017). Understanding the Impressions, Motivations, and Barriers of One Time Code Contributors to FLOSS Projects: A Survey. In Proceedings of the 39th International Conference on Software Engineering (pp. 187–197). Piscataway, NJ, USA: IEEE Press.",
+  # "https://doi.org/10.1109/ICSE.2017.25",
+  # "Motivations",
   "Crowston, K., & Fagnot, I. (2018). Stages of motivation for contributing user-generated content: A theory and empirical test. International Journal of Human-Computer Studies, 109, 89–101.",
     "https://doi.org/10.1016/j.ijhcs.2017.08.005",
     "Motivations",
@@ -576,8 +578,7 @@ Your success in this class is important to me. We will all need accommodations a
 
 ### Services for Students with Disabilities
 
-This class respects and welcomes students of all backgrounds, identities, and abilities. If there are circumstances that make our learning environment and activities difficult, if you have medical information that you need to share with me, or if you need specific arrangements in case the building needs to be evacuated, please let me know. I am committed to creating an effective learning environment for all students, but I can only do so if you discuss your needs with me as early as possible. I promise to maintain the confidentiality of these discussions. If appropriate, also contact
-Services for Students with Disabilities, 512-471-6259 (voice) or 1-866-329- 3986 (video phone).  http://ddce.utexas.edu/disability/about/
+This class respects and welcomes students of all backgrounds, identities, and abilities. Accomodations are a normal part of academic life. If there are circumstances that make our learning environment and activities difficult, if you have medical information that you need to share with me, or if you need specific arrangements in case the building needs to be evacuated, please let me know. I am committed to creating an effective learning environment for all students, but I can only do so if you discuss your needs with me as early as possible. I promise to maintain the confidentiality of these discussions. If appropriate, also contact Services for Students with Disabilities, 512-471-6259 (voice) or 1-866-329- 3986 (video phone).  http://ddce.utexas.edu/disability/about/
 
 ### Counseling and Mental Health Center
 
