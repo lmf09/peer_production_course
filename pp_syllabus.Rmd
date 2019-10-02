@@ -3,7 +3,7 @@ title: "Syllabus for Peer Production (Open Source Software, Wikipedia, & Beyond)
 author: "James Howison"
 subtitle: INF 385T - Special Topics in Information Science
 output:
-  
+
   html_document:
     toc: yes
     toc_depth: 2
@@ -43,21 +43,21 @@ Official, updated version of syllabus always online at:
 https://jameshowison.github.io/peer_production_course/pp_syllabus.html
 
 ```{r header_output}
-kable(header) %>% 
+kable(header) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
 
-# Objectives and Assignments 
+# Objectives and Assignments
 
 [!(`r fa('link')`)](#objectives-and-assignments)
 
-This course explores "peer production" which is a name for the open collaborations that produce things like open source software and Wikipedia.  Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful: 
+This course explores "peer production" which is a name for the open collaborations that produce things like open source software and Wikipedia.  Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful:
 
 > [A] way of producing goods and services that relies on self-organizing communities of individuals. In such communities, the labor of a large number of people is coordinated towards a shared outcome.
 
 As we learn about peer production we'll learn to distinguish it from different kinds of online collaborations, such as crowdsourcing, citizen science, question and answer sites, and mere sharing of code. Near synonyms for the way of working taught in this course are: "The open source way", "Open collaboration", "Open mass production".
 
-This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration). 
+This is a course is about a sociotechnical phenomenon and it takes a sociotechnical approach. In practice this means that we'll be learning both conceptual insight and practical skills. The course weaves together learning how to use key technologies of collaboration (e.g., git, github, travisCI, markdown) at the same time that we learn social and organizational theory about peer production (e.g., the role of copyright licenses, motivations of participants, governance models, coordination theory, models of collaboration risk, cultures of collaboration).
 
 There are no pre-requistes for this course. While we will be discussing software development students will not be required to program. We will use the command line as we learn to use `git` and `github` everything will be covered in class.
 
@@ -94,10 +94,10 @@ assessments <- tribble(
 )
 ```
 ```{r assessment_output}
-kable(assessments) %>% 
+kable(assessments) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
-There is no final exam for this course. 
+There is no final exam for this course.
 
 Grading will follow Texas Information School recommendations (including A, A-, B+, and so on).
 
@@ -122,7 +122,7 @@ The course will have assignments based on the technical topics we are learning, 
 
 For this assignment students will write a 2,000 word scholarly essay describing and analyzing efforts to adapt peer production outside of software development and wikipedia. Examples could include open hardware, open governance, open culture, and everyone is encouraged to find a project relevant to their own interests. You are looking for ways of working inspired by peer production. The paper should draw on the conceptual literature to compare and contrast the challenge faced by these adaptation efforts to what we've learned about "the open source way". Students will conduct at least one interview with participants (or former participants if the effort is no longer continuing). The paper will also describe the collaboration infrastructure used and compare it to the technologies we have learned in class).
 
-The paper will be authored in Markdown and submitted via a pull request to the class github.
+The paper will be authored in Plain Text or Markdown and submitted via a pull request to the class github.
 
 ### Peer Production Participation Project
 
@@ -130,7 +130,7 @@ Students will identify and participate in an active peer production community of
 
 There are three graded components, each to be submitted via a pull request.
 
-1. Identifying and describing a peer production community. ~500 words. Authored in plain text or markdown. This paper should clearly identify the community and argue for it being a peer production community. The paper should describe how the student thinks the peer production community works and their expectations about participation. Submit PDF directly to Canvas assignment.
+1. Identifying and describing a peer production community. ~500 words. Authored in plain text or markdown (ensure file is encoded with Unicode UTF-8 encoding and Unix/LF-only line endings). This paper should clearly identify the community and argue for it being a peer production community. The paper should describe how the student thinks the peer production community works and their expectations about participation (including process and expectations of how you expect to feel during participation). Submit directly to Canvas assignment.
 
 2. Participating and describing that participation in an experience report of ~500 words, authored in Markdown. Students should describe their experience in the project. At a minimum the paper should desribe the work done, how it was contributed, as well as whether and how the work was reviewed. Students should compare their experience with their expectations described in the first paper. Submit via a pull request from a branch created just for this submission (ie not master), and post that URL to the Canvas assignment.
 
@@ -156,10 +156,10 @@ readings <- tribble(
   ~reading_text, ~reading_link, ~topic_assigned,
   #----------------------------
   "DataCamp Git Chapter 1 - Basic Workflow",
-    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/basic-workflow", 
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/basic-workflow",
     "Files. diffs, versions",
   "DataCamp Git Chapter 2 - Repositories",
-    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/repositories", 
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/repositories",
     "Commits, blobs, and tree",
   "Only the very first lesson of \"Learning Git Branching\" site (useful visualizations of trees)",
     "https://learngitbranching.js.org/",
@@ -168,25 +168,25 @@ readings <- tribble(
     "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/undo",
     "Rewinding work",
   "DataCamp Git Chapter 4 - Branches",
-    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/working-with-branches", 
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/working-with-branches",
     "Branching",
   "DataCamp Git Chapter 5 - Collaborating",
-    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/collaborating", 
+    "https://campus.datacamp.com/courses/introduction-to-git-for-data-science/collaborating",
     "Sharing and conflicts",
-  "TravisCI For Beginners", 
-    "https://docs.travis-ci.com/user/for-beginners/", 
+  "TravisCI For Beginners",
+    "https://docs.travis-ci.com/user/for-beginners/",
     "Testing and Continuous Integration",
   "TravisCI Getting Started",
-    "https://docs.travis-ci.com/user/getting-started/", 
+    "https://docs.travis-ci.com/user/getting-started/",
     "Testing and Continuous Integration",
   "Github Release Announcement",
-    "https://github.com/blog/1547-release-your-software", 
-    "Release management", 
-  "Github Help on Releases",
-    "https://help.github.com/articles/creating-releases/", 
+    "https://github.com/blog/1547-release-your-software",
     "Release management",
-  "Github Markdown", 
-    "https://guides.github.com/features/mastering-markdown/", 
+  "Github Help on Releases",
+    "https://help.github.com/articles/creating-releases/",
+    "Release management",
+  "Github Markdown",
+    "https://guides.github.com/features/mastering-markdown/",
     "Documentation and Q&A",
   "Commonmark Markdown Tutorial",
     "http://commonmark.org/help/tutorial/",
@@ -194,9 +194,9 @@ readings <- tribble(
   "Citations and references in Markdown",
     "https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html",
     "Documentation and Q&A",
-  "Wikipedia Student Tutorial", 
+  "Wikipedia Student Tutorial",
     "https://en.wikipedia.org/wiki/Wikipedia:Training/For_students",
-    "Wikipedia Editing", 
+    "Wikipedia Editing",
   "Datacamp Rmarkdown - All 4 chapters",
     "https://campus.datacamp.com/courses/reporting-with-r-markdown/chapter-one-authoring-r-markdown-reports",
     "Executable Papers",
@@ -215,7 +215,7 @@ insight_readings <- tribble(
   ~reading_text, ~reading_link, ~topic_assigned,
   #--------------------------------
   "Benkler, Peer Production and Cooperation.",
-    "http://www.benkler.org/Peer%20production%20and%20cooperation%2009.pdf", 
+    "http://www.benkler.org/Peer%20production%20and%20cooperation%2009.pdf",
     "Peer production vs other organizational forms",
   "Levine, S. S., & Prietula, M. J. (2013). Open Collaboration for Innovation: Principles and Performance. Organization Science, 25(5), 1414–1433.",
     "https://doi.org/10.1287/orsc.2013.0872",
@@ -325,7 +325,7 @@ insight_readings <- tribble(
     "Governance",
   "Optional (except for Doctoral and aspiring doctoral students) Shaikh, M., & Henfridsson, O. (2017). Governing open source software through coordination processes. Information and Organization, 27(2), 116–135.",
     "https://doi.org/10.1016/j.infoandorg.2017.04.001",
-    "Governance", 
+    "Governance",
   # "Coleman, E. G. (2012). Coding Freedom: The Ethics and Aesthetics of Hacking. Princeton: Princeton University Press.",
   # "",
   # "Governance",
@@ -338,7 +338,7 @@ insight_readings <- tribble(
   "Vasilescu, B., Yu, Y., Wang, H., Devanbu, P., & Filkov, V. (2015). Quality and Productivity Outcomes Relating to Continuous Integration in GitHub. In Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (pp. 805–816). New York, NY, USA: ACM.",
   "https://doi.org/10.1145/2786805.2786850",
   "Agile and Test Driven Development",
-  "Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM.", 
+  "Antin, J., Yee, R., Cheshire, C., & Nov, O. (2011). Gender Differences in Wikipedia Editing. In Proceedings of the 7th International Symposium on Wikis and Open Collaboration (pp. 11–14). New York, NY, USA: ACM.",
   "https://doi.org/10.1145/2038558.2038561",
   "Bias and lack of diversity",
   "Hecht, B., & Gergle, D. (2010). The Tower of Babel Meets Web 2.0: User-generated Content and Its Applications in a Multilingual Context. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 291–300). New York, NY, USA: ACM. https://doi.org/10.1145/1753326.1753370",
@@ -389,20 +389,20 @@ skills_topics <- tribble(
   "Tech setup workshop", "[terminal, command line, git install, github account](./tech_setup.html)",
   "Files. diffs, versions", "git diff, add, commit (locally)",
   "Commits, blobs, and tree", "git diff continued HEAD and HEAD~1",
-  "Rewinding work", "revert, other undos, checking out old versions, rewriting history", 
+  "Rewinding work", "revert, other undos, checking out old versions, rewriting history",
   "Branching", "git checkout, manual merge",  
   "Sharing and conflicts", "github fork, git clone, push, pull request, pull upstream, merge, conflicts, mark resolved",
-  "Testing and Continuous Integration", "Test suites, Travis CI integration, github bots", 
+  "Testing and Continuous Integration", "Test suites, Travis CI integration, github bots",
   "Release management", "[Git exercises](additional_git_exercises.html) and github releases, git tag",
-  "Documentation and Q&A", "github flavored markdown", 
-  "Wikipedia Editing", "wiki syntax, referencing", 
-  "Executable Papers", "rmarkdown, knitr, rstudio", 
+  "Documentation and Q&A", "github flavored markdown",
+  "Wikipedia Editing", "wiki syntax, referencing",
+  "Executable Papers", "rmarkdown, knitr, rstudio",
   # "Rewinding Git and additional exercises", "git revert, rebase, cherry-pick"
   # "Machine Readable Creative Commons Licenses", "CC web tools and xml"
 ) %>% rownames_to_column()
 
 insight_topics <- tribble(
-  ~insight_topic, 
+  ~insight_topic,
   #----------
   "Peer production vs other organizational forms",
   "Peer production case studies",
@@ -419,10 +419,10 @@ insight_topics <- tribble(
   # "Peer production in Art and Culture"
 ) %>% rownames_to_column()
 
-content_classes <- full_join(insight_topics, skills_topics, by="rowname") %>% 
- #  mutate(skill_topic = glue_data(., "{skill_topic}{tech_commands}")) %>% 
-  select(insight_topic, skill_topic, tech_commands) %>% 
-  rownames_to_column(var = "class_name") %>% 
+content_classes <- full_join(insight_topics, skills_topics, by="rowname") %>%
+ #  mutate(skill_topic = glue_data(., "{skill_topic}{tech_commands}")) %>%
+  select(insight_topic, skill_topic, tech_commands) %>%
+  rownames_to_column(var = "class_name") %>%
   mutate(class_name = str_c("Content", "class", class_name, sep=" "))
 
 first_class <- tibble(class_name = c("Introductory activity and Syllabus Review"))
@@ -443,12 +443,12 @@ no_meetings <- tribble(
   #--------------------
  #  "2019-10-22", "2019-10-23", "No meeting: Professor travel",
    "2019-11-27", "2019-11-30", "No meeting: Thanksgiving Break",
- 
-  "2019-11-05", "2019-11-08", "No meeting: Professor research travel" 
-) %>% 
-  mutate(days_list = map2(period_start, period_end, expand_days)) %>% 
-  select(class_name, days_list) %>% 
-  unnest() 
+
+  "2019-11-05", "2019-11-08", "No meeting: Professor research travel"
+) %>%
+  mutate(days_list = map2(period_start, period_end, expand_days)) %>%
+  select(class_name, days_list) %>%
+  unnest()
 
 first_class_day = parse_datetime("2019-08-28")
 
@@ -457,18 +457,18 @@ last_class_day = parse_datetime("2019-12-09")
 # class Tuesday 9-11:45
 all_tuesdays <- seq(first_class_day, to = last_class_day, by = "week")
 
-weekly_schedule <- tibble(class_day = all_tuesdays) %>% 
+weekly_schedule <- tibble(class_day = all_tuesdays) %>%
   # add no meeting days to schedule
-  left_join(no_meetings, by = c("class_day" = "days_list")) %>% 
+  left_join(no_meetings, by = c("class_day" = "days_list")) %>%
   mutate(meets = if_else(is.na(class_name), TRUE, FALSE))
 
-meetings <- weekly_schedule %>% 
-  filter(meets == T) %>% 
-  select(-class_name) %>% 
-  rownames_to_column() %>% 
-  full_join(schedule, by = "rowname") %>% 
-  select(-rowname) %>% 
-  bind_rows(weekly_schedule %>% filter(meets == F)) %>% 
+meetings <- weekly_schedule %>%
+  filter(meets == T) %>%
+  select(-class_name) %>%
+  rownames_to_column() %>%
+  full_join(schedule, by = "rowname") %>%
+  select(-rowname) %>%
+  bind_rows(weekly_schedule %>% filter(meets == F)) %>%
   arrange(class_day)
 ```
 
@@ -476,12 +476,12 @@ meetings <- weekly_schedule %>%
 
 format_datetime <- function(x, format) { strftime(as.POSIXct(x), format, tz=lubridate::tz(x)) }
 
-meetings %>% 
-  mutate(class_day = format_datetime(class_day, format = "%a %b %d")) %>% 
-   mutate(class_day = cell_spec(class_day, "html", color = ifelse(meets == TRUE, "green", "red"))) %>% 
-  select(-meets) %>% 
-  replace_na(list(skill_topic = "none", insight_topic = "none", tech_commands = "none")) %>% 
-  kable("html", escape = FALSE) %>% 
+meetings %>%
+  mutate(class_day = format_datetime(class_day, format = "%a %b %d")) %>%
+   mutate(class_day = cell_spec(class_day, "html", color = ifelse(meets == TRUE, "green", "red"))) %>%
+  select(-meets) %>%
+  replace_na(list(skill_topic = "none", insight_topic = "none", tech_commands = "none")) %>%
+  kable("html", escape = FALSE) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
 ```
 
@@ -492,22 +492,22 @@ meetings %>%
 # get dates for readings.
 dated_readings <- readings %>% left_join(meetings, by = c("topic_assigned" = "skill_topic"))
 
-group_counts <- dated_readings %>% 
-  arrange(class_day) %>% 
-  group_by(topic_assigned, class_day) %>% 
-  summarize(group_size = n()) %>% 
-  arrange(class_day) %>% 
-  select(-class_day) %>% 
+group_counts <- dated_readings %>%
+  arrange(class_day) %>%
+  group_by(topic_assigned, class_day) %>%
+  summarize(group_size = n()) %>%
+  arrange(class_day) %>%
+  select(-class_day) %>%
   deframe()
 
 # group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
 
-dated_readings %>% 
-  mutate(reading_link = glue("[link]({reading_link})")) %>% 
-  arrange(class_day) %>% 
-  select(reading_text, reading_link) %>% 
-  kable("html", escape = FALSE, col.names = NULL) %>% 
-  kable_styling(bootstrap_options = c("responsive", "striped")) %>% 
+dated_readings %>%
+  mutate(reading_link = glue("[link]({reading_link})")) %>%
+  arrange(class_day) %>%
+  select(reading_text, reading_link) %>%
+  kable("html", escape = FALSE, col.names = NULL) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
   group_rows(index = group_counts)
 ```
 
@@ -518,22 +518,22 @@ Often I can link directly to websites or PDFs, but sometimes I will provide link
 ```{r}
 insight_dated <- insight_readings %>% left_join(meetings, by = c("topic_assigned" = "insight_topic"))
 
-group_counts <- insight_dated %>% 
-  arrange(class_day) %>% 
-  group_by(topic_assigned, class_day) %>% 
-  summarize(group_size = n()) %>% 
-  arrange(class_day) %>% 
-  select(-class_day) %>% 
+group_counts <- insight_dated %>%
+  arrange(class_day) %>%
+  group_by(topic_assigned, class_day) %>%
+  summarize(group_size = n()) %>%
+  arrange(class_day) %>%
+  select(-class_day) %>%
   deframe
 
 # group_indexes <- setNames(group_counts$group_size, group_counts$topic_assigned)
 
-insight_dated %>% 
-  mutate(reading_link = glue("[link]({reading_link})")) %>% 
-  arrange(class_day) %>% 
-  select(reading_text, reading_link) %>% 
-  kable("html", escape = FALSE, col.names = NULL) %>% 
-  kable_styling(bootstrap_options = c("responsive", "striped")) %>% 
+insight_dated %>%
+  mutate(reading_link = glue("[link]({reading_link})")) %>%
+  arrange(class_day) %>%
+  select(reading_text, reading_link) %>%
+  kable("html", escape = FALSE, col.names = NULL) %>%
+  kable_styling(bootstrap_options = c("responsive", "striped")) %>%
   group_rows(index = group_counts)
 
 ```
@@ -557,7 +557,7 @@ Each student in the course is expected to abide by the University of Texas Honor
 With these rights come responsibilities:
 
 - You are responsible for taking care of yourself, managing your time, and communicating with the teaching team and with others if things start to feel out of control or overwhelming.
-- You are responsible for acting in a way that is worthy of respect and always respectful of others. 
+- You are responsible for acting in a way that is worthy of respect and always respectful of others.
 - Your experience with this course is directly related to the quality of the energy that you bring to it, and your energy shapes the quality of your peers' experiences.
 - You are responsible for creating an inclusive environment and for speaking up when someone is excluded. In particular, you are responsible for ensuring that your participation does not exclude the participation of others. Office hours are available for in-depth further discussion of advanced topics or other interests that pursuing in depth during class would exclude others.
 - You are responsible for holding yourself accountable to these standards, holding each other to these standards, and holding the teaching team accountable as well.
@@ -583,7 +583,7 @@ This class respects and welcomes students of all backgrounds, identities, and ab
 ### Counseling and Mental Health Center
 
 All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.
- 
+
 If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support.  http://www.cmhc.utexas.edu/individualcounseling.html
 
 ### The Sanger Learning Center
