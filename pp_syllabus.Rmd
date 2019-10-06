@@ -21,7 +21,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(kableExtra)
-library(fontawesome)
+# library(fontawesome)
 library(tidyverse)
 library(glue)
 header <- tribble(
@@ -45,11 +45,12 @@ https://jameshowison.github.io/peer_production_course/pp_syllabus.html
 ```{r header_output}
 kable(header) %>%
   kable_styling(bootstrap_options = c("responsive", "striped"))
+
+# [!(`r fa('link')`)](#objectives-and-assignments)
+
 ```
 
 # Objectives and Assignments
-
-[!(`r fa('link')`)](#objectives-and-assignments)
 
 This course explores "peer production" which is a name for the open collaborations that produce things like open source software and Wikipedia.  Perhaps not coincidentally the Wikipedia page on [Peer Production](https://en.wikipedia.org/wiki/Peer_production) is quite useful:
 
@@ -508,7 +509,8 @@ dated_readings %>%
   select(reading_text, reading_link) %>%
   kable("html", escape = FALSE, col.names = NULL) %>%
   kable_styling(bootstrap_options = c("responsive", "striped")) %>%
-  group_rows(index = group_counts)
+  kableExtra::group_rows(index = group_counts) %>% 
+  {.}
 ```
 
 ## Insight Readings
@@ -534,7 +536,8 @@ insight_dated %>%
   select(reading_text, reading_link) %>%
   kable("html", escape = FALSE, col.names = NULL) %>%
   kable_styling(bootstrap_options = c("responsive", "striped")) %>%
-  group_rows(index = group_counts)
+  kableExtra::group_rows(index = group_counts) %>% 
+  {.}
 
 ```
 
