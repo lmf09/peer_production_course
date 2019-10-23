@@ -350,8 +350,17 @@ leopard
 turtle</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p><em>p2</em> and <em>p1</em> should then fork and clone that repository. Each should make a change to the <code>list.txt</code> file, add, commit, push, pull request. 2.1 <em>p3</em> should accept the pull requests, using the github interface to resolve any conflicts.</p></li>
-<li><p><em>p3</em> should create a new branch called <code>colors</code> and edits the file adding a color next to animals (<code>lion red</code>).</p></li>
-<li><p><em>p3</em> now wants to merge the <code>colors</code> branch. 3.1 <em>p3</em> does a <code>pull upstream</code> (getting changes to <code>master</code> since creation of <code>colors</code>) 3.2 <em>p3</em> switches to the master branch 3.3 <em>p3</em> merges the <code>colors</code> branch into <code>master</code>, resolving any conflicts that result. 3.4 <em>p3</em> <code>push</code> to <code>master</code> 3.5 <em>p3</em> deletes the <code>colors</code> branch (which should then be deleted on their <code>origin</code> because it was fully merged).</p></li>
+<li><em>p3</em> should create a new branch called <code>colors</code> and edits the file adding a color next to animals (<code>lion red</code>). <em>p3</em> will now merge that branch (easist done on local)</li>
+</ol>
+<ul>
+<li>3.1 <em>p3</em> switches to the master branch</li>
+<li>3.2 <em>p3</em> does a <code>git pull</code> (getting changes to <code>master</code> since creation of <code>colors</code>)</li>
+<li>3.3 <em>p3</em> merges the <code>colors</code> branch into <code>master</code>, resolving any conflicts that result.</li>
+<li>3.4 <em>p3</em> <code>push</code> to <code>master</code></li>
+<li>3.5 <em>p3</em> deletes the <code>colors</code> branch (which should then be deleted on their <code>origin</code> because it was fully merged).</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><em>p1</em> and <em>p2</em> do a <code>git pull upstream master</code> to receive the changes originally from <em>p3</em>’s branch.</li>
 </ol>
 </div>
 <div id="upstream-owner-contributes-via-pull-request" class="section level3">

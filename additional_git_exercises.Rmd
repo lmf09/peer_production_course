@@ -23,14 +23,14 @@ turtle
 2. *p2* and *p1* should then fork and clone that repository. Each should make a change to the `list.txt` file, add, commit, push, pull request.
   2.1 *p3* should accept the pull requests, using the github interface to resolve any conflicts.
 
-3. *p3* should create a new branch called `colors` and edits the file adding a color next to animals (`lion red`).
+3. *p3* should create a new branch called `colors` and edits the file adding a color next to animals (`lion red`). *p3* will now merge that branch (easist done on local)
+  - 3.1 *p3* switches to the master branch
+  - 3.2 *p3* does a `git pull` (getting changes to `master` since creation of `colors`)
+  - 3.3 *p3* merges the `colors` branch into `master`, resolving any conflicts that result.
+  - 3.4 *p3* `push` to `master`
+  - 3.5 *p3* deletes the `colors` branch (which should then be deleted on their `origin` because it was fully merged).
 
-3. *p3* now wants to merge the `colors` branch.
-  3.1 *p3* does a `pull upstream` (getting changes to `master` since creation of `colors`)
-  3.2 *p3* switches to the master branch
-  3.3 *p3* merges the `colors` branch into `master`, resolving any conflicts that result.
-  3.4 *p3* `push` to `master`
-  3.5 *p3* deletes the `colors` branch (which should then be deleted on their `origin` because it was fully merged).
+4. *p1* and *p2* do a `git pull upstream master` to receive the changes originally from *p3*'s branch.
 
 ### Upstream owner contributes via pull request
 
