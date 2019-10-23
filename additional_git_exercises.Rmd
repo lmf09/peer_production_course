@@ -39,7 +39,7 @@ When you own a repository (ie you clone something other than a fork), you someti
 1. *p2* creates a repository, clone it to laptop, create a file with animals in it, push it to repo.
 2. *p1* and *p3* create forks.
 3. *p1* and *p3* make edits (`add`, `commit`, `push`) and use pull requests to contribute changes to upstream
-4. To create a PR (rather than pushing directly) *p2* creates a branch (`for-pull-request`), edits, and pushes to that branch.  Then, viewing that branch on github, *p2* can create a Pull Request from `for-pull-request` to `master`.
+4. To create a PR (rather than pushing directly) *p2* creates a branch (`for-pull-request`), edits, and pushes to that branch (`git push -u origin for-pull-request`).  Then, while viewing that branch on github, *p2* can create a Pull Request from `for-pull-request` to `master`.
 
 ### Merge branch locally
 
