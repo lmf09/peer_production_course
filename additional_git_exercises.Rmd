@@ -34,16 +34,94 @@ turtle
 
 ### Upstream owner contributes via pull request
 
-When you own a repository (ie you clone something other than a fork), you sometimes want to make contributions via a pull request rather than directly pushing. You do this by working with a branch.
+When you own a repository (ie you clone something other than a fork), you sometimes want to make contributions via a pull request rather than directly pushing. You do this by working with a branch then making a pull request from that branch to master all inside the same repo.
 
-1. *p2* creates a repository, clone it to laptop, create a file with animals in it, push it to repo.
-2. *p1* and *p3* create forks.
-3. *p1* and *p3* make edits (`add`, `commit`, `push`) and use pull requests to contribute changes to upstream
-4. To create a PR (rather than pushing directly) *p2* creates a branch (`for-pull-request`), edits, and pushes to that branch (`git push -u origin for-pull-request`).  Then, while viewing that branch on github, *p2* can create a Pull Request from `for-pull-request` to `master`.
+1. On local, create a branch (`for-pull-request`)
 
-### Merge branch locally
+```sh
+$ git checkout -b for-pull-request
+Switched to a new branch 'for-pull-request'
+```
 
-### Merge branch via Pull Request
+2. Edit a file, add, commit.
+
+```sh
+$ nano README.md
+$ git add README.md
+$ git commit -m "Edit to send via pull request"
+```
+
+3. Push the branch to origin (`git push` will fail but the error message will show you a command that will run).
+
+```sh
+$ git push
+fatal: The current branch for-pull-request has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin for-pull-request
+$git push --set-upstream origin for-pull-request
+Total 0 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'for-pull-request' on GitHub by visiting:
+remote:      https://github.com/jameshowison/pp2019_pr_owner/pull/new/for-pull-request
+remote: 
+To https://github.com/jameshowison/pp2019_pr_owner.git
+ * [new branch]      for-pull-request -> for-pull-request
+Branch for-pull-request set up to track remote branch for-pull-request from origin.
+```
+
+4. On github, looking at the branch (by choosing it from drop down mentu), open a PR.
+
+![Image of drop down menu for branches, shows for-pull-request and master](images/selecting_branch_on_github.png)
+
+![New Pull Request button](images/new_pr_button.png)
+
+![Create PR screen](images/create_pr_screen.png)
+
+
+5. Accept the PR on github.
+
+![Image of accepting PR](images/merge_pr.png)
+
+6. Back on local, switch to master.
+
+```sh
+git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+```
+(Note that I think that up-to-date message is wrong because branch is behind master, hence being able to pull things)
+
+7. Pull changes.
+
+```sh
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/jameshowison/pp2019_pr_owner
+   36cd034..6d0673d  master     -> origin/master
+Updating 36cd034..6d0673d
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working tree clean
+```
+
+8. Delete the branch locally and on github
+
+```sh
+$ git branch -d for-pull-request
+Deleted branch for-pull-request (was 01541c3).
+$git push origin --delete for-pull-request
+To https://github.com/jameshowison/pp2019_pr_owner.git
+ - [deleted]         for-pull-request
+```
 
 ### Tags
 
@@ -51,10 +129,16 @@ Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` whi
 
 1. Have *p3* create a repository, and start with the file having only animals.
 2. *p3* tag repo with `tag-animals`
-3. *p2* create a branch `colors-for-tag`. *p1* and *p3* contribute to that branch (`lion yellow`)
-4. *p2* merge branch to master, than tag master as `tag-colors`.
+3. *p2* create a branch `colors-for-tag`. *p1* and *p3* contribute to that branch (`lion yellow`) via pull requests.
+4. *p2* merge `colors-for-tag` branch to master, than tag master as `tag-colors`.
 5. *p1* create branch `noises-for-tag`. *p2* and *p3* contribute to that branch as well. (`lion yellow roar`)
-6. *p1* merges that branch to master, then tag masters as `tag-noises`.
+6. *p1* merges that branch to master, then tag master as `tag-noises`. Others update.
+
+Look at the history via `git log`:
+
+```
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
 
 ### Split a pull request
 
