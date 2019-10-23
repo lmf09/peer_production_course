@@ -13,20 +13,18 @@ Exercises done in groups of three.  Incidentally [George Simmel](http://socio.ch
 
 ### Allow on-going development in master and branch
 
-Working in a repository owned by *p3*. Start with a file with four animals, one per line.
-
+1. Working in a repository owned by *p3*, and working in a local clone, *p3* should create a file with four animals, one per line, called `list.txt` and add, commit, push that into the shared/upstream repository.
 ```
 lion
 tiger
 leopard
 turtle
 ```
+2. *p2* and *p1* should then fork and clone that repository. Each should make a change to the `list.txt` file, add, commit, push, pull request.
+  2.1 *p3* should accept the pull requests, using the github interface to resolve any conflicts.
 
-1. *p3* creates a new branch called `colors`, and edits the file adding a color next to animals (`lion red`).  All three are going to contribute to that branch, as well as develop in the `master` branch.
-  1.1 *p3* creates new repo on github.
-  1.2 *p3* clones that repo to laptop.
-  1.3 *p3* creates a new file adding content above, add, commit, push.
-2. *p1*, *p2*, *p3* all make contributions to master (adding more animals to the file, or changing a line.)
+3. *p3* should create a new branch called `colors` and edits the file adding a color next to animals (`lion red`).
+
 3. *p3* now wants to merge the `colors` branch.
   3.1 *p3* does a `pull upstream` (getting changes to `master` since creation of `colors`)
   3.2 *p3* switches to the master branch
