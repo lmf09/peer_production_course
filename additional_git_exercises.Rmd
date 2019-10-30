@@ -261,7 +261,7 @@ Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` whi
 
 Look at the history via `git log`:
 
-```
+```sh
 git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
 
@@ -689,7 +689,7 @@ Groups of 2 or 3. Nominate Person A, B, (and C).
 
 1. Person A creates a repo on Github.
 2. Person A adds 2 commits and pushes.
-3. Person B and C fork and clone (and adds upstream).
+3. Person B and C fork and clone (and add upstream).
 4. Person B and C add four commits of four files on their master.
 5. Person B and C create a pull request to "upstream" with all four commits.
 6. Person A rejects the pull request, closing it and commenting "please split this up" (and direct which files go together, probably 2 in each.)
@@ -709,21 +709,41 @@ There are many options, here are two:
 
 First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `master` branch in that copy.
 
-```
+```sh
 cd ..
-dhcp-10-157-4-224:PeerProduction howison$ cp -r practice_split practice_split_revert
-dhcp-10-157-4-224:PeerProduction howison$ cd practice_split_revert/
-dhcp-10-157-4-224:practice_split_revert howison$ git branch
+```
+```sh
+cp -r practice_split practice_split_revert
+```
+```sh
+cd practice_split_revert/
+```
+```
+```
+```sh
+git branch
+```
+```
 * first_set_branch
   master
   second_set_branch
-dhcp-10-157-4-224:practice_split_revert howison$ git checkout master
+```
+```sh
+git checkout master
+```
+```
 Switched to branch 'master'
-dhcp-10-157-4-224:practice_split_revert howison$ git branch
+```
+```sh
+git branch
   first_set_branch
 * master
   second_set_branch
-dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 0841579 (second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
@@ -741,7 +761,9 @@ dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-comm
 Then I used a range expression (the `..`) with revert to revert the set of four commits on `master`. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want).  I also had to provide four commit messages, one for each of the reverting commits.
 
 ```
-dhcp-10-157-4-224:practice_split_revert howison$ git revert f945961..b5d4aff
+git revert f945961..b5d4aff
+```
+```
 [master afcee46] Revert "added to second set"
  1 file changed, 1 deletion(-)
  delete mode 100644 second_set_file2
@@ -754,7 +776,11 @@ dhcp-10-157-4-224:practice_split_revert howison$ git revert f945961..b5d4aff
 [master 0e022e3] Revert "first set edit"
  1 file changed, 1 deletion(-)
  delete mode 100644 first_set_file
-dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 0e022e3 (HEAD -> master) Revert "first set edit"
 * 302d9de Revert "added second file to first set"
 * 45731a7 Revert "first edit in second set"
@@ -771,7 +797,11 @@ dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-comm
 |/  
 * f945961 editing readme
 * 367e25a Adding readme
-dhcp-10-157-4-224:practice_split_revert howison$ ls
+```
+```sh
+ls
+```
+```
 README
 ```
 
@@ -779,12 +809,22 @@ README
 
 Again, I create a copy of the repo, practice_split_reset_master:
 
+```sh
+cp -r practice_split practice_split_reset_master
 ```
-dhcp-10-157-4-224:PeerProduction howison$ cp -r practice_split practice_split_reset_master
-dhcp-10-157-4-224:PeerProduction howison$ cd practice_split_reset_master/
-dhcp-10-157-4-224:practice_split_reset_master howison$ git checkout master
+```sh
+cd practice_split_reset_master/
+```
+```sh
+git checkout master
+```
+```
 Switched to branch 'master'
-dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 0841579 (second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
@@ -801,10 +841,16 @@ dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbre
 
 Now we use `git reset --hard` to force HEAD back to `f945961`. That disconnects the four unwanted commits (I *think* they aren't actually gone from .git folder yet, but they could be deleted any time as they aren't connected to anything.).
 
+```sh
+git reset --hard f945961
 ```
-dhcp-10-157-4-224:practice_split_reset_master howison$ git reset --hard f945961
+```
 HEAD is now at f945961 editing readme
-dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
 * 0841579 (second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
@@ -833,10 +879,10 @@ master--|--|-----------------------|----|-------
 
 ```
 
-Two options:
+Two options (after using `git pull upstream master`)
 
-1. Either merge master into pie_chart_branch yourself
-2. Rebase pie_chart_branch on master (as though pie_chart_branch was created in late February)
+1. Either merge `master` into `pie_chart_branch` yourself
+2. Rebase `pie_chart_branch` on master (as though `pie_chart_branch` was created in late February and you did all the work very quickly!)
 
 Option 1 is possible, but often merging your work involves touching parts of the system you don't know what much about and is better left to the core developers.  In addition, merging in this way leaves merge commit messages and some projects really don't like those because they make the history harder to read.
 

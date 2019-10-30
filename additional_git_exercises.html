@@ -649,7 +649,7 @@ turtle</code></pre>
 <li><em>p1</em> merges that branch to master, then tag master as <code>tag-noises</code>. Others update.</li>
 </ol>
 <p>Look at the history via <code>git log</code>:</p>
-<pre><code>git log --oneline --abbrev-commit --all --graph --decorate --color</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
 </div>
 <div id="split-a-pull-request" class="section level3">
 <h3>Split a pull request</h3>
@@ -762,47 +762,53 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme</code></pre>
 <p>Now the branching in this in-terminal visualization is a bit clearer.</p>
+<p>Ok, so that set up, with each file/commit on the correct branch is our goal</p>
+</div>
+<div id="simulating-recovering-from-doing-it-wrongly" class="section level2">
+<h2>Simulating recovering from doing it wrongly</h2>
 <p>Pretend we had never made the two additional branches but made those commits all on the master branch. Then if a pull request opened after the first set of files <code>51f2622</code> was never accepted, our second set would have just piled on top and been added to the pull request.</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+<pre><code>git log --oneline --abbrev-commit --all --graph --decorate --color
 * b5d4aff (HEAD -&gt; master) added to second set
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
 * 51f2622 first set edit
 * f945961 editing readme
 * 367e25a Adding readme</code></pre>
-<p>So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take. First we’re going to use the ability to create a new branch from an earlier point in history. By default <code>git checkout -b newbranch</code> will branch from the current HEAD, but we can tell it to branch earlier. So first we’re going to create our two branches as though we’d done it before we started working, which is when HEAD was at <code>f945961</code>.</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ git checkout -b first_set_branch f945961
-Switched to a new branch 'first_set_branch'
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* b5d4aff (master) added to second set
+<p>The problem here is that the top two commits (reading downward) are on <code>master</code> and should be on <code>second_set_branch</code> and the third and fourth commits are on <code>master</code> and should be on <code>first_set_branch</code>.</p>
+<p>So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take.</p>
+<p>First we’re going to use the ability to create a new branch from an earlier point in history. By default <code>git checkout -b newbranch</code> will branch from the current HEAD, but we can tell it to branch earlier. So first we’re going to create our two branches as though we’d done it before we started working, which is when HEAD was at <code>f945961</code>.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="fu">git</span> checkout -b first_set_branch f945961</a></code></pre></div>
+<pre><code>Switched to a new branch 'first_set_branch'</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* b5d4aff (master) added to second set
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
 * 51f2622 first set edit
 * f945961 (HEAD -&gt; first_set_branch) editing readme
-* 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$</code></pre>
-<p>So now we can see <code>(HEAD -&gt; first_set_branch)</code> at <code>f945961</code> as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from <code>master</code>. We can do that using <code>git cherry-pick</code> pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a <code>first_set_branch</code> which has both of our needed commits. Note that this doesn’t “move” them from the <code>master</code> branch, but creates new commits with the same content.</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ git cherry-pick 51f2622
-[first_set_branch ef2a3ee] first set edit
+* 367e25a Adding readme</code></pre>
+<p>So now we can see <code>(HEAD -&gt; first_set_branch)</code> at <code>f945961</code> as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from <code>master</code>.</p>
+<p>We can do that using <code>git cherry-pick</code> pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a <code>first_set_branch</code> which has both of our needed commits. Note that this doesn’t `<code>move'' them from the</code>master` branch, but creates new commits with the same content.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="fu">git</span> cherry-pick 51f2622</a></code></pre></div>
+<pre><code>[first_set_branch ef2a3ee] first set edit
  Date: Tue Apr 10 17:42:47 2018 -0500
  1 file changed, 1 insertion(+)
- create mode 100644 first_set_file
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* ef2a3ee (HEAD -&gt; first_set_branch) first set edit
+ create mode 100644 first_set_file</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* ef2a3ee (HEAD -&gt; first_set_branch) first set edit
 | * b5d4aff (master) added to second set
 | * dfa98b0 first edit in second set
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
 * f945961 editing readme
-* 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick 43bc368
-[first_set_branch 9f2b69a] added second file to first set
+* 367e25a Adding readme</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="fu">git</span> cherry-pick 43bc368</a></code></pre></div>
+<pre><code>[first_set_branch 9f2b69a] added second file to first set
  Date: Tue Apr 10 17:43:07 2018 -0500
  1 file changed, 1 insertion(+)
- create mode 100644 first_set_file2
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 9f2b69a (HEAD -&gt; first_set_branch) added second file to first set
+ create mode 100644 first_set_file2</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 9f2b69a (HEAD -&gt; first_set_branch) added second file to first set
 * ef2a3ee first set edit
 | * b5d4aff (master) added to second set
 | * dfa98b0 first edit in second set
@@ -811,11 +817,12 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 |/  
 * f945961 editing readme
 * 367e25a Adding readme</code></pre>
+<p>So that’s good, because now we have the right commits on <code>first_set_branch</code>. (We also have them on master, but that’s not a problem as we’d be making our pull request from <code>first_set_branch</code> not from master.)</p>
 <p>We can do the same thing to create our separate <code>second_set_branch</code>, starting by pointing back at the same branching point:</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ git checkout -b second_set_branch f945961
-Switched to a new branch 'second_set_branch'
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 9f2b69a (first_set_branch) added second file to first set
+<pre><code>git checkout -b second_set_branch f945961</code></pre>
+<pre><code>Switched to a new branch 'second_set_branch'</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 9f2b69a (first_set_branch) added second file to first set
 * ef2a3ee first set edit
 | * b5d4aff (master) added to second set
 | * dfa98b0 first edit in second set
@@ -823,19 +830,19 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 | * 51f2622 first set edit
 |/  
 * f945961 (HEAD -&gt; second_set_branch) editing readme
-* 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick dfa98b0
-[second_set_branch 0d8e90d] first edit in second set
+* 367e25a Adding readme</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="fu">git</span> cherry-pick dfa98b0</a></code></pre></div>
+<pre><code>[second_set_branch 0d8e90d] first edit in second set
  Date: Tue Apr 10 17:43:35 2018 -0500
  1 file changed, 1 insertion(+)
- create mode 100644 second_set_file
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick b5d4aff
-[second_set_branch 0841579] added to second set
+ create mode 100644 second_set_file</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="fu">git</span> cherry-pick b5d4aff</a></code></pre></div>
+<pre><code>[second_set_branch 0841579] added to second set
  Date: Tue Apr 10 17:43:57 2018 -0500
  1 file changed, 1 insertion(+)
- create mode 100644 second_set_file2
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 0841579 (HEAD -&gt; second_set_branch) added to second set
+ create mode 100644 second_set_file2</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 0841579 (HEAD -&gt; second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
 | * ef2a3ee first set edit
@@ -848,16 +855,16 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 * f945961 editing readme
 * 367e25a Adding readme</code></pre>
 <p>So now we show three branches coming off at <code>f945961</code>: <code>master</code>, <code>first_set_branch</code>, and <code>second_set_branch</code>. Each of first_set_branch and second_set_branch have just the commits and files that they should:</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ git branch
-  first_set_branch
+<div class="sourceCode" id="cb91"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="fu">git</span> branch</a></code></pre></div>
+<pre><code>  first_set_branch
   master
-* second_set_branch
-dhcp-10-157-4-224:practice_split howison$ ls
-README           second_set_file  second_set_file2
-dhcp-10-157-4-224:practice_split howison$ git checkout first_set_branch
-Switched to branch 'first_set_branch'
-dhcp-10-157-4-224:practice_split howison$ ls
-README          first_set_file  first_set_file2</code></pre>
+* second_set_branch</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="fu">ls</span></a></code></pre></div>
+<pre><code>README           second_set_file  second_set_file2</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="fu">git</span> checkout first_set_branch</a></code></pre></div>
+<pre><code>Switched to branch 'first_set_branch'</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="fu">ls</span></a></code></pre></div>
+<pre><code>README          first_set_file  first_set_file2</code></pre>
 <p>So now if we create pull requests from each of those branches, they’ll contain just the content we wanted in each of them. Hurray!</p>
 <p>QUESTION: If upstream merges a cherry picked branch in, the commits on downstream’s master branch stay, right? Undoing them is a separate process? Would pulling upstream later affect those files?</p>
 </div>
@@ -867,7 +874,7 @@ README          first_set_file  first_set_file2</code></pre>
 <ol style="list-style-type: decimal">
 <li>Person A creates a repo on Github.</li>
 <li>Person A adds 2 commits and pushes.</li>
-<li>Person B and C fork and clone (and adds upstream).</li>
+<li>Person B and C fork and clone (and add upstream).</li>
 <li>Person B and C add four commits of four files on their master.</li>
 <li>Person B and C create a pull request to “upstream” with all four commits.</li>
 <li>Person A rejects the pull request, closing it and commenting “please split this up” (and direct which files go together, probably 2 in each.)</li>
@@ -886,21 +893,22 @@ README          first_set_file  first_set_file2</code></pre>
 <div id="using-revert" class="section level4">
 <h4>Using revert</h4>
 <p>First I created a copy of the repo, <code>practice_split_revert/</code>, so I could show both options. Then I switched to the <code>master</code> branch in that copy.</p>
-<pre><code>dhcp-10-157-4-224:practice_split howison$ cd ..
-dhcp-10-157-4-224:PeerProduction howison$ cp -r practice_split practice_split_revert
-dhcp-10-157-4-224:PeerProduction howison$ cd practice_split_revert/
-dhcp-10-157-4-224:practice_split_revert howison$ git branch
-* first_set_branch
+<div class="sourceCode" id="cb99"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="bu">cd</span> ..</a></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="fu">cp</span> -r practice_split practice_split_revert</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="bu">cd</span> practice_split_revert/</a></code></pre></div>
+<pre><code></code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="fu">git</span> branch</a></code></pre></div>
+<pre><code>* first_set_branch
   master
-  second_set_branch
-dhcp-10-157-4-224:practice_split_revert howison$ git checkout master
-Switched to branch 'master'
-dhcp-10-157-4-224:practice_split_revert howison$ git branch
-  first_set_branch
-* master
-  second_set_branch
-dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 0841579 (second_set_branch) added to second set
+  second_set_branch</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="fu">git</span> checkout master</a></code></pre></div>
+<pre><code>Switched to branch 'master'</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="fu">git</span> branch</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2">  <span class="ex">first_set_branch</span></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="ex">*</span> master</a>
+<a class="sourceLine" id="cb107-4" data-line-number="4">  <span class="ex">second_set_branch</span></a></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 0841579 (second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
 | * ef2a3ee first set edit
@@ -913,8 +921,8 @@ dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-comm
 * f945961 editing readme
 * 367e25a Adding readme</code></pre>
 <p>Then I used a range expression (the <code>..</code>) with revert to revert the set of four commits on <code>master</code>. Note that the double dot range syntax used like this is left exclusive (i.e. you have to go back one further than the first you want). I also had to provide four commit messages, one for each of the reverting commits.</p>
-<pre><code>dhcp-10-157-4-224:practice_split_revert howison$ git revert f945961..b5d4aff
-[master afcee46] Revert &quot;added to second set&quot;
+<pre><code>git revert f945961..b5d4aff</code></pre>
+<pre><code>[master afcee46] Revert &quot;added to second set&quot;
  1 file changed, 1 deletion(-)
  delete mode 100644 second_set_file2
 [master 45731a7] Revert &quot;first edit in second set&quot;
@@ -925,9 +933,9 @@ dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-comm
  delete mode 100644 first_set_file2
 [master 0e022e3] Revert &quot;first set edit&quot;
  1 file changed, 1 deletion(-)
- delete mode 100644 first_set_file
-dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 0e022e3 (HEAD -&gt; master) Revert &quot;first set edit&quot;
+ delete mode 100644 first_set_file</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 0e022e3 (HEAD -&gt; master) Revert &quot;first set edit&quot;
 * 302d9de Revert &quot;added second file to first set&quot;
 * 45731a7 Revert &quot;first edit in second set&quot;
 * afcee46 Revert &quot;added to second set&quot;
@@ -942,19 +950,19 @@ dhcp-10-157-4-224:practice_split_revert howison$ git log --oneline --abbrev-comm
 | * ef2a3ee first set edit
 |/  
 * f945961 editing readme
-* 367e25a Adding readme
-dhcp-10-157-4-224:practice_split_revert howison$ ls
-README</code></pre>
+* 367e25a Adding readme</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="fu">ls</span></a></code></pre></div>
+<pre><code>README</code></pre>
 </div>
 <div id="git-reset-hard" class="section level4">
 <h4>git reset –hard</h4>
 <p>Again, I create a copy of the repo, practice_split_reset_master:</p>
-<pre><code>dhcp-10-157-4-224:PeerProduction howison$ cp -r practice_split practice_split_reset_master
-dhcp-10-157-4-224:PeerProduction howison$ cd practice_split_reset_master/
-dhcp-10-157-4-224:practice_split_reset_master howison$ git checkout master
-Switched to branch 'master'
-dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 0841579 (second_set_branch) added to second set
+<div class="sourceCode" id="cb116"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="fu">cp</span> -r practice_split practice_split_reset_master</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="bu">cd</span> practice_split_reset_master/</a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="fu">git</span> checkout master</a></code></pre></div>
+<pre><code>Switched to branch 'master'</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 0841579 (second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
 | * ef2a3ee first set edit
@@ -967,16 +975,16 @@ dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbre
 * f945961 editing readme
 * 367e25a Adding readme</code></pre>
 <p>Now we use <code>git reset --hard</code> to force HEAD back to <code>f945961</code>. That disconnects the four unwanted commits (I <em>think</em> they aren’t actually gone from .git folder yet, but they could be deleted any time as they aren’t connected to anything.).</p>
-<pre><code>dhcp-10-157-4-224:practice_split_reset_master howison$ git reset --hard f945961
-HEAD is now at f945961 editing readme
-dhcp-10-157-4-224:practice_split_reset_master howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 0841579 (second_set_branch) added to second set
-* 0d8e90d first edit in second set
-| * 9f2b69a (first_set_branch) added second file to first set
-| * ef2a3ee first set edit
-|/  
-* f945961 (HEAD -&gt; master) editing readme
-* 367e25a Adding readme</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="fu">git</span> reset --hard f945961</a></code></pre></div>
+<pre><code>HEAD is now at f945961 editing readme</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="ex">*</span> 0841579 (second_set_branch) <span class="ex">added</span> to second set</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="ex">*</span> 0d8e90d first edit in second set</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3"><span class="kw">|</span> <span class="ex">*</span> 9f2b69a (first_set_branch) <span class="ex">added</span> second file to first set</a>
+<a class="sourceLine" id="cb125-4" data-line-number="4"><span class="kw">|</span> <span class="ex">*</span> ef2a3ee first set edit</a>
+<a class="sourceLine" id="cb125-5" data-line-number="5"><span class="kw">|</span><span class="ex">/</span>  </a>
+<a class="sourceLine" id="cb125-6" data-line-number="6"><span class="ex">*</span> f945961 (HEAD -<span class="op">&gt;</span> master) <span class="ex">editing</span> readme</a>
+<a class="sourceLine" id="cb125-7" data-line-number="7"><span class="ex">*</span> 367e25a Adding readme</a></code></pre></div>
 <p>That seems neater, but keep in mind that if you’d pushed <code>master</code> to github while those commits were there, anyone else who had built on your repo would have lots of trouble. The <code>revert</code> approach goes for messier history, but has the advantage that it doesn’t disconnect anyone else.</p>
 </div>
 </div>
@@ -992,10 +1000,10 @@ master--|--|-----------------------|----|-------
             \                     /
              \__new_database_____/
 </code></pre>
-<p>Two options:</p>
+<p>Two options (after using <code>git pull upstream master</code>)</p>
 <ol style="list-style-type: decimal">
-<li>Either merge master into pie_chart_branch yourself</li>
-<li>Rebase pie_chart_branch on master (as though pie_chart_branch was created in late February)</li>
+<li>Either merge <code>master</code> into <code>pie_chart_branch</code> yourself</li>
+<li>Rebase <code>pie_chart_branch</code> on master (as though <code>pie_chart_branch</code> was created in late February and you did all the work very quickly!)</li>
 </ol>
 <p>Option 1 is possible, but often merging your work involves touching parts of the system you don’t know what much about and is better left to the core developers. In addition, merging in this way leaves merge commit messages and some projects really don’t like those because they make the history harder to read.</p>
 <p>Option 2 is called <code>rebase</code> and is explained usefully at <a href="https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request">this page from the EdX project</a>. As you rebase, you can also <code>squash</code> some of your commits (treat many commits as one) to make them easier to follow for those reviewing your pull request.</p>
