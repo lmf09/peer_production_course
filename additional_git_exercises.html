@@ -600,7 +600,7 @@ turtle</code></pre>
 <li>Back on local, switch to master.</li>
 </ol>
 <div class="spoiler">
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">git</span> checkout master</a>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1">$ <span class="fu">git</span> checkout master</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="ex">Switched</span> to branch <span class="st">'master'</span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="ex">Your</span> branch is up-to-date with <span class="st">'origin/master'</span>.</a></code></pre></div>
 </div>
@@ -661,102 +661,106 @@ turtle</code></pre>
 master -
         \
          \ Branch for second set</code></pre>
+<p>The grey sections below are commands, the white is output.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="ex">This</span> is a git command that you should copy</a></code></pre></div>
+<pre><code>This is output.</code></pre>
 <p>Below, I make a new repo, create a README file and make a commit, and edit it once making another commit:</p>
-<pre><code>dhcp-10-157-4-224:practice howison$ git init
-Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice/.git/
-dhcp-10-157-4-224:practice howison$ vi README
-dhcp-10-157-4-224:practice howison$ git add README
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;Adding readme&quot;
-[master (root-commit) d5eb1e8] Adding readme
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="fu">git</span> init</a></code></pre></div>
+<pre><code>Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice/.git/</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">touch</span> README</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="fu">git</span> add README</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;Adding readme&quot;</span></a></code></pre></div>
+<pre><code>[master (root-commit) d5eb1e8] Adding readme
  1 file changed, 1 insertion(+)
- create mode 100644 README
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* d5eb1e8 (HEAD -&gt; master) Adding readme
-dhcp-10-157-4-224:practice howison$ vi README
-dhcp-10-157-4-224:practice howison$ git add README
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;editing readme&quot;
-[master 749454e] editing readme
+ create mode 100644 README</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* d5eb1e8 (HEAD -&gt; master) Adding readme</code></pre>
+<p>So now we have a single commit on a single branch <code>master</code>. To create a new file we can use <code>touch</code> (which creates an empty file here, but that’s ok).</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="fu">touch</span> README</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="fu">git</span> add README</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;editing readme&quot;</span></a></code></pre></div>
+<pre><code>[master 749454e] editing readme
  1 file changed, 2 insertions(+)
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 749454e (HEAD -&gt; master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$</code></pre>
-<p>Now we can create the feature branch (first_set_branch) for the first set and look at the commits we’ve made. Using <code>git checkout</code> with <code>-b</code> creates a new branch:</p>
-<pre><code>dhcp-10-157-4-224:practice howison$ git checkout -b first_set_branch
-Switched to a new branch 'first_set_branch'
-dhcp-10-157-4-224:practice howison$ vi first_set_file
-dhcp-10-157-4-224:practice howison$ git add first_set_file
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;first set edit&quot;
-[first_set_branch d71ade9] first set edit
+* d5eb1e8 Adding readme</code></pre>
+<p>Now we have added a commit on <code>master</code> so the <code>HEAD -&gt; master</code> shows the ‘tip’ of the master branch.</p>
+<p>Now we can create the feature branch (<code>first_set_branch</code>) for the first set and look at the commits we’ve made. Using <code>git checkout</code> with <code>-b</code> creates a new branch:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="fu">git</span> checkout -b first_set_branch</a></code></pre></div>
+<pre><code>Switched to a new branch 'first_set_branch'</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="fu">touch</span> first_set_file</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="fu">git</span> add first_set_file</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;first set edit&quot;</span></a></code></pre></div>
+<pre><code>[first_set_branch d71ade9] first set edit
  1 file changed, 1 insertion(+)
- create mode 100644 first_set_file
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* d71ade9 (HEAD -&gt; first_set_branch) first set edit
+ create mode 100644 first_set_file</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* d71ade9 (HEAD -&gt; first_set_branch) first set edit
 * 749454e (master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$ git checkout master
-Switched to branch 'master'
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* d71ade9 (first_set_branch) first set edit
+* d5eb1e8 Adding readme</code></pre>
+<p>Now we can see that we have two branches <code>(master)</code> and <code>first_set_branch</code>. <code>HEAD</code> shows us that we are currently in the <code>first_set_branch</code> branch.</p>
+<p>Now we’re going to change back to master.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="fu">git</span> checkout master</a></code></pre></div>
+<pre><code>Switched to branch 'master'</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* d71ade9 (first_set_branch) first set edit
 * 749454e (HEAD -&gt; master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$</code></pre>
-<p>Notice that in the git log stuff, when we are on the first branch it shows <code>HEAD -&gt; first_set_branch</code> but when we swap back to <code>master</code> we see <code>(HEAD -&gt; master)</code> on the second line. So there is a commit (<code>d71ade9</code>) that isn’t in <code>master</code>. Now we can create the second branch:</p>
-<pre><code>dhcp-10-157-4-224:practice howison$ git checkout -b second_set_branch
-Switched to a new branch 'second_set_branch'
-dhcp-10-157-4-224:practice howison$ vi second_set_file
-dhcp-10-157-4-224:practice howison$ git add second_set_file
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;first edit in second set&quot;
-[second_set_branch 9dc0a23] first edit in second set
+* d5eb1e8 Adding readme</code></pre>
+<p>See how the <code>HEAD</code> changed, showing us that we’re looking at the master branch. Notice also that there is a commit (<code>d71ade9</code>) that isn’t in <code>master</code>.</p>
+<p>Now we can create the second branch:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="fu">git</span> checkout -b second_set_branch</a></code></pre></div>
+<pre><code>Switched to a new branch 'second_set_branch'</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="fu">touch</span> second_set_file</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="fu">git</span> add second_set_file</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;first edit in second set&quot;</span></a></code></pre></div>
+<pre><code>[second_set_branch 9dc0a23] first edit in second set
  1 file changed, 1 insertion(+)
- create mode 100644 second_set_file
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 9dc0a23 (HEAD -&gt; second_set_branch) first edit in second set
+ create mode 100644 second_set_file</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 9dc0a23 (HEAD -&gt; second_set_branch) first edit in second set
 | * d71ade9 (first_set_branch) first set edit
 |/  
 * 749454e (master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$</code></pre>
-<p>Now we can see that there are two branches that “come off” head after <code>749454e</code>. We can work independently, and could create pull requests for each branch separately. We are still on the second set’s branch, let’s add a second file to it:</p>
-<pre><code>dhcp-10-157-4-224:practice howison$ vi second_set_file2
-dhcp-10-157-4-224:practice howison$ git add second_set_file2
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;added to second set&quot;
-[second_set_branch 04d6967] added to second set
+* d5eb1e8 Adding readme</code></pre>
+<p>Now the visualization has changed a bit. We can see that there are two branches that “come off” head after <code>749454e</code>. We can work independently, and could create pull requests for each branch separately. We are still on the second set’s branch, let’s add a second file to it:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="fu">touch</span> second_set_file2</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="fu">git</span> add second_set_file2</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;added to second set&quot;</span></a></code></pre></div>
+<pre><code>[second_set_branch 04d6967] added to second set
  1 file changed, 1 insertion(+)
- create mode 100644 second_set_file2
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* 04d6967 (HEAD -&gt; second_set_branch) added to second set
+ create mode 100644 second_set_file2</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* 04d6967 (HEAD -&gt; second_set_branch) added to second set
 * 9dc0a23 first edit in second set
 | * d71ade9 (first_set_branch) first set edit
 |/  
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme</code></pre>
 <p>And just for fun swap back to the first branch and add a second file there:</p>
-<pre><code>dhcp-10-157-4-224:practice howison$ git checkout first_set_branch
-Switched to branch 'first_set_branch'
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+<div class="sourceCode" id="cb59"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="fu">git</span> checkout first_set_branch</a></code></pre></div>
+<pre><code>Switched to branch 'first_set_branch'
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 04d6967 (second_set_branch) added to second set
 * 9dc0a23 first edit in second set
 | * d71ade9 (HEAD -&gt; first_set_branch) first set edit
 |/  
 * 749454e (master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$ vi first_set_file2
-dhcp-10-157-4-224:practice howison$ git add first_set_file2
-dhcp-10-157-4-224:practice howison$ git commit -m &quot;added second file to first set&quot;
-[first_set_branch b74cb32] added second file to first set
+* d5eb1e8 Adding readme</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="fu">touch</span> first_set_file2</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="fu">git</span> add first_set_file2</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="fu">git</span> commit -m <span class="st">&quot;added second file to first set&quot;</span></a></code></pre></div>
+<pre><code>[first_set_branch b74cb32] added second file to first set
  1 file changed, 1 insertion(+)
- create mode 100644 first_set_file2
-dhcp-10-157-4-224:practice howison$ git add first_set_file2
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
-* b74cb32 (HEAD -&gt; first_set_branch) added second file to first set
+ create mode 100644 first_set_file2</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="fu">git</span> add first_set_file2</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="fu">git</span> log --oneline --abbrev-commit --all --graph --decorate --color</a></code></pre></div>
+<pre><code>* b74cb32 (HEAD -&gt; first_set_branch) added second file to first set
 * d71ade9 first set edit
 | * 04d6967 (second_set_branch) added to second set
 | * 9dc0a23 first edit in second set
 |/  
 * 749454e (master) editing readme
-* d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$</code></pre>
+* d5eb1e8 Adding readme</code></pre>
 <p>Now the branching in this in-terminal visualization is a bit clearer.</p>
 <p>Pretend we had never made the two additional branches but made those commits all on the master branch. Then if a pull request opened after the first set of files <code>51f2622</code> was never accepted, our second set would have just piled on top and been added to the pull request.</p>
 <pre><code>dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
@@ -1001,10 +1005,10 @@ master--|--|-----------------------|----|-------
 <p>The purpose of <code>git</code> is to retain all of your history, so that you can go back to any point in development and recover (as well as experiment while not breaking the mainline of development). Simultaneously when we are working in the open that means that anyone can view any file that was ever in a repository. With that in mind it is not too surprising that if you accidentally add something to git and then push it to github you can have trouble putting “the genie back in the bottle.”</p>
 <p>Let’s say that we create a repo and add a README, then add a SPECIAL_SECRET file with the password “swordfish” in it. Note that I use <code>git add *</code> below which is a very common way to accidentally add a problematic file, try to get into the habit of adding files one by one.</p>
 <pre><code>SOI-A14570-Howison:PeerProduction howison$ cd practice_history_edit/
-SOI-A14570-Howison:practice_history_edit howison$ git init
+git init
 Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/
-SOI-A14570-Howison:practice_history_edit howison$ vi README
-SOI-A14570-Howison:practice_history_edit howison$ git status
+vi README
+git status
 On branch master
 
 No commits yet
@@ -1015,42 +1019,42 @@ Untracked files:
         README
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
-SOI-A14570-Howison:practice_history_edit howison$ git add README
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m &quot;now we have a README&quot;
+git add README
+git commit -m &quot;now we have a README&quot;
 [master (root-commit) f4878b0] now we have a README
  1 file changed, 1 insertion(+)
  create mode 100644 README
-SOI-A14570-Howison:practice_history_edit howison$ vi SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ git add *
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m &quot;whoops added secret&quot;
+vi SPECIAL_SECRET
+git add *
+git commit -m &quot;whoops added secret&quot;
 [master 018f6b5] whoops added secret
  1 file changed, 1 insertion(+)
  create mode 100644 SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 018f6b5 (HEAD -&gt; master) whoops added secret
 * f4878b0 now we have a README</code></pre>
 <p>Now I’ll go ahead and make one more edit to README</p>
-<pre><code>SOI-A14570-Howison:practice_history_edit howison$ vi README
-SOI-A14570-Howison:practice_history_edit howison$ git add READMESOI-A14570-Howison:practice_history_edit howison$ git commit -m &quot;README edit 2&quot;[master 4d51f91] README edit 2
+<pre><code>vi README
+git add READMEgit commit -m &quot;README edit 2&quot;[master 4d51f91] README edit 2
  1 file changed, 1 insertion(+)
-SOI-A14570-Howison:practice_history_edit howison$ git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -&gt; master) README edit 2
+git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -&gt; master) README edit 2
 * 018f6b5 whoops added secret
 * f4878b0 now we have a README
-SOI-A14570-Howison:practice_history_edit howison$ ls
+ls
 README         SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ cat SPECIAL_SECRET
+cat SPECIAL_SECRET
 swordfish</code></pre>
 <p>Ok, so we realize that the password file got into git and we swing into action and delete it from git.</p>
-<pre><code>SOI-A14570-Howison:practice_history_edit howison$ git rm SPECIAL_SECRET
+<pre><code>git rm SPECIAL_SECRET
 rm 'SPECIAL_SECRET'
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m &quot;phew removed it, or did we&quot;
+git commit -m &quot;phew removed it, or did we&quot;
 [master ff229ba] phew removed it, or did we
  1 file changed, 1 deletion(-)
  delete mode 100644 SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ ls
+ls
 README</code></pre>
 <p>So now the file is not there. Or rather it is not in our working directory. The problem is that it is still inside out <code>.git</code> folder and we can get it out easily.</p>
-<pre><code>SOI-A14570-Howison:practice_history_edit howison$ git checkout HEAD~1
+<pre><code>git checkout HEAD~1
 Note: checking out 'HEAD~1'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -1063,8 +1067,8 @@ do so (now or later) by using -b with the checkout command again. Example:
   git checkout -b &lt;new-branch-name&gt;
 
 HEAD is now at 4d51f91... README edit 2
-SOI-A14570-Howison:practice_history_edit howison$ lsREADME         SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ cat SPECIAL_SECRET
+lsREADME         SPECIAL_SECRET
+cat SPECIAL_SECRET
 swordfish</code></pre>
 <p>Here I just used <code>git checkout HEAD~1</code> which goes one commit back in time, to before we deleted the SPECIAL_SECRET file. Even if we were far ahead, or over on other branches etc, I could always get back by asking to see the code just after the commit that added the file <code>git checkout 018f6b5</code> (btw, to get out of <code>DETACHED HEAD</code> state just checkout the branch again, we’re working on master so it would be <code>git checkout master</code>).</p>
 <p>So using <code>git rm</code> removes a file from the working directories but it doesn’t remove it from the git history. And that’s a sensible thing, usually you want to be able to go back in time. But sometimes you want to remove something from the history entirely. You can do that using the approaches outlined by Github here: <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">Removing sensitive data from a repository</a></p>

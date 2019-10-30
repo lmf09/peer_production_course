@@ -247,6 +247,7 @@ To https://github.com/jameshowison/pp2019_pr_owner.git
  - [deleted]         for-pull-request
 ```
 </div>
+
 ### Tags
 
 Your task is to create three tags, `tag-animals`, `tag-colors`, `tag-noises` which reflect the merge points of different branches.
@@ -280,84 +281,170 @@ master -
          \ Branch for second set
 ```
 
+The grey sections below are commands, the white is output.
+```sh
+This is a git command that you should copy
+```
+```
+This is output.
+```
+
+
 Below, I make a new repo, create a README file and make a commit, and edit it once making another commit:
 
+```sh
+git init
 ```
-dhcp-10-157-4-224:practice howison$ git init
+```
 Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice/.git/
-dhcp-10-157-4-224:practice howison$ vi README
-dhcp-10-157-4-224:practice howison$ git add README
-dhcp-10-157-4-224:practice howison$ git commit -m "Adding readme"
+```
+```sh
+touch README
+```
+```sh
+git add README
+```
+```sh
+git commit -m "Adding readme"
+```
+```
 [master (root-commit) d5eb1e8] Adding readme
  1 file changed, 1 insertion(+)
  create mode 100644 README
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * d5eb1e8 (HEAD -> master) Adding readme
-dhcp-10-157-4-224:practice howison$ vi README
-dhcp-10-157-4-224:practice howison$ git add README
-dhcp-10-157-4-224:practice howison$ git commit -m "editing readme"
+```
+
+So now we have a single commit on a single branch `master`.  To create a new file we can use `touch` (which creates an empty file here, but that's ok).
+
+```sh
+touch README
+```
+```sh
+git add README
+```
+```sh
+git commit -m "editing readme"
+```
+```
 [master 749454e] editing readme
  1 file changed, 2 insertions(+)
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 749454e (HEAD -> master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$
 ```
 
-Now we can create the feature branch (first_set_branch) for the first set and look at the commits we've made. Using `git checkout` with `-b` creates a new branch:
+Now we have added a commit on `master` so the `HEAD -> master` shows the 'tip' of the master branch.
 
+Now we can create the feature branch (`first_set_branch`) for the first set and look at the commits we've made. Using `git checkout` with `-b` creates a new branch:
+
+```sh
+git checkout -b first_set_branch
 ```
-dhcp-10-157-4-224:practice howison$ git checkout -b first_set_branch
+```
 Switched to a new branch 'first_set_branch'
-dhcp-10-157-4-224:practice howison$ vi first_set_file
-dhcp-10-157-4-224:practice howison$ git add first_set_file
-dhcp-10-157-4-224:practice howison$ git commit -m "first set edit"
+```
+```sh
+touch first_set_file
+```
+```sh
+git add first_set_file
+```
+```sh
+git commit -m "first set edit"
+```
+```
 [first_set_branch d71ade9] first set edit
  1 file changed, 1 insertion(+)
  create mode 100644 first_set_file
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * d71ade9 (HEAD -> first_set_branch) first set edit
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$ git checkout master
+```
+
+Now we can see that we have two branches `(master)` and `first_set_branch`. `HEAD` shows us that we are currently in the `first_set_branch` branch.
+
+Now we're going to change back to master.
+
+```sh
+git checkout master
+```
+```
 Switched to branch 'master'
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * d71ade9 (first_set_branch) first set edit
 * 749454e (HEAD -> master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$
 ```
 
-Notice that in the git log stuff, when we are on the first branch it shows `HEAD -> first_set_branch` but when we swap back to `master` we see `(HEAD -> master)` on the second line. So there is a commit (`d71ade9`) that isn't in `master`.  Now we can create the second branch:
+See how the `HEAD` changed, showing us that we're looking at the master branch.  Notice also that there is a commit (`d71ade9`) that isn't in `master`.  
 
+Now we can create the second branch:
+
+```sh
+git checkout -b second_set_branch
 ```
-dhcp-10-157-4-224:practice howison$ git checkout -b second_set_branch
+```
 Switched to a new branch 'second_set_branch'
-dhcp-10-157-4-224:practice howison$ vi second_set_file
-dhcp-10-157-4-224:practice howison$ git add second_set_file
-dhcp-10-157-4-224:practice howison$ git commit -m "first edit in second set"
+```
+```sh
+touch second_set_file
+```
+```sh
+git add second_set_file
+```
+```sh
+git commit -m "first edit in second set"
+```
+```
 [second_set_branch 9dc0a23] first edit in second set
  1 file changed, 1 insertion(+)
  create mode 100644 second_set_file
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 9dc0a23 (HEAD -> second_set_branch) first edit in second set
 | * d71ade9 (first_set_branch) first set edit
 |/  
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$
 ```
 
-Now we can see that there are two branches that "come off" head after `749454e`. We can work independently, and could create pull requests for each branch separately. We are still on the second set's branch, let’s add a second file to it:
+Now the visualization has changed a bit. We can see that there are two branches that "come off" head after `749454e`. We can work independently, and could create pull requests for each branch separately. We are still on the second set's branch, let’s add a second file to it:
 
+```sh
+touch second_set_file2
 ```
-dhcp-10-157-4-224:practice howison$ vi second_set_file2
-dhcp-10-157-4-224:practice howison$ git add second_set_file2
-dhcp-10-157-4-224:practice howison$ git commit -m "added to second set"
+```sh
+git add second_set_file2
+```
+```sh
+git commit -m "added to second set"
+```
+```
 [second_set_branch 04d6967] added to second set
  1 file changed, 1 insertion(+)
  create mode 100644 second_set_file2
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 04d6967 (HEAD -> second_set_branch) added to second set
 * 9dc0a23 first edit in second set
 | * d71ade9 (first_set_branch) first set edit
@@ -368,24 +455,40 @@ dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --gr
 
 And just for fun swap back to the first branch and add a second file there:
 
+```sh
+git checkout first_set_branch
 ```
-dhcp-10-157-4-224:practice howison$ git checkout first_set_branch
+```
 Switched to branch 'first_set_branch'
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 04d6967 (second_set_branch) added to second set
 * 9dc0a23 first edit in second set
 | * d71ade9 (HEAD -> first_set_branch) first set edit
 |/  
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$ vi first_set_file2
-dhcp-10-157-4-224:practice howison$ git add first_set_file2
-dhcp-10-157-4-224:practice howison$ git commit -m "added second file to first set"
+```
+```sh
+touch first_set_file2
+```
+```sh
+git add first_set_file2
+```
+```sh
+git commit -m "added second file to first set"
+```
+```
 [first_set_branch b74cb32] added second file to first set
  1 file changed, 1 insertion(+)
  create mode 100644 first_set_file2
-dhcp-10-157-4-224:practice howison$ git add first_set_file2
-dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git add first_set_file2
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * b74cb32 (HEAD -> first_set_branch) added second file to first set
 * d71ade9 first set edit
 | * 04d6967 (second_set_branch) added to second set
@@ -393,15 +496,18 @@ dhcp-10-157-4-224:practice howison$ git log --oneline --abbrev-commit --all --gr
 |/  
 * 749454e (master) editing readme
 * d5eb1e8 Adding readme
-dhcp-10-157-4-224:practice howison$
 ```
 
 Now the branching in this in-terminal visualization is a bit clearer.
 
+Ok, so that set up, with each file/commit on the correct branch is our goal
+
+## Simulating recovering from doing it wrongly
+
 Pretend we had never made the two additional branches but made those commits all on the master branch. Then if a pull request opened after the first set of files `51f2622` was never accepted, our second set would have just piled on top and been added to the pull request.
 
 ```
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * b5d4aff (HEAD -> master) added to second set
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
@@ -410,30 +516,47 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 * 367e25a Adding readme
 ```
 
-So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take.  First we're going to use the ability to create a new branch from an earlier point in history. By default `git checkout -b newbranch` will branch from the current HEAD, but we can tell it to branch earlier.  So first we're going to create our two branches as though we'd done it before we started working, which is when HEAD was at `f945961`.
+The problem here is that the top two commits (reading downward) are on `master` and should be on `second_set_branch` and the third and fourth commits are on `master` and should be on `first_set_branch`.
 
+So our challenge is to make this linear setup look like our branched setup above. There are a few routes we can take.  
+
+First we're going to use the ability to create a new branch from an earlier point in history. By default `git checkout -b newbranch` will branch from the current HEAD, but we can tell it to branch earlier.  So first we're going to create our two branches as though we'd done it before we started working, which is when HEAD was at `f945961`.
+
+```sh
+git checkout -b first_set_branch f945961
 ```
-dhcp-10-157-4-224:practice_split howison$ git checkout -b first_set_branch f945961
+```
 Switched to a new branch 'first_set_branch'
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * b5d4aff (master) added to second set
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
 * 51f2622 first set edit
 * f945961 (HEAD -> first_set_branch) editing readme
 * 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$
 ```
 
-So now we can see `(HEAD -> first_set_branch)` at `f945961` as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from `master`.  We can do that using `git cherry-pick` pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a `first_set_branch` which has both of our needed commits. Note that this doesn't “move” them from the `master` branch, but creates new commits with the same content.
+So now we can see `(HEAD -> first_set_branch)` at `f945961` as the branching point for first_set_branch. However the commits we need on that branch are not on it, we need to bring them over from `master`.  
 
+We can do that using `git cherry-pick` pointing to each of the two commits we want to bring over. Below we can see (moving up the left) that we have a `first_set_branch` which has both of our needed commits. Note that this doesn't ``move'' them from the `master` branch, but creates new commits with the same content.
+
+```sh
+git cherry-pick 51f2622
 ```
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick 51f2622
+```
 [first_set_branch ef2a3ee] first set edit
  Date: Tue Apr 10 17:42:47 2018 -0500
  1 file changed, 1 insertion(+)
  create mode 100644 first_set_file
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * ef2a3ee (HEAD -> first_set_branch) first set edit
 | * b5d4aff (master) added to second set
 | * dfa98b0 first edit in second set
@@ -442,12 +565,20 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 |/  
 * f945961 editing readme
 * 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick 43bc368
+```
+```sh
+git cherry-pick 43bc368
+```
+```
 [first_set_branch 9f2b69a] added second file to first set
  Date: Tue Apr 10 17:43:07 2018 -0500
  1 file changed, 1 insertion(+)
  create mode 100644 first_set_file2
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 9f2b69a (HEAD -> first_set_branch) added second file to first set
 * ef2a3ee first set edit
 | * b5d4aff (master) added to second set
@@ -459,12 +590,20 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 * 367e25a Adding readme
 ```
 
+So that's good, because now we have the right commits on `first_set_branch`. (We also have them on master, but that's not a problem as we'd be making our pull request from `first_set_branch` not from master.)
+
 We can do the same thing to create our separate `second_set_branch`, starting by pointing back at the same branching point:
 
 ```
-dhcp-10-157-4-224:practice_split howison$ git checkout -b second_set_branch f945961
+git checkout -b second_set_branch f945961
+```
+```
 Switched to a new branch 'second_set_branch'
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 9f2b69a (first_set_branch) added second file to first set
 * ef2a3ee first set edit
 | * b5d4aff (master) added to second set
@@ -474,17 +613,29 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 |/  
 * f945961 (HEAD -> second_set_branch) editing readme
 * 367e25a Adding readme
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick dfa98b0
+```
+```sh
+git cherry-pick dfa98b0
+```
+```
 [second_set_branch 0d8e90d] first edit in second set
  Date: Tue Apr 10 17:43:35 2018 -0500
  1 file changed, 1 insertion(+)
  create mode 100644 second_set_file
-dhcp-10-157-4-224:practice_split howison$ git cherry-pick b5d4aff
+```
+```sh
+git cherry-pick b5d4aff
+```
+```
 [second_set_branch 0841579] added to second set
  Date: Tue Apr 10 17:43:57 2018 -0500
  1 file changed, 1 insertion(+)
  create mode 100644 second_set_file2
-dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```sh
+git log --oneline --abbrev-commit --all --graph --decorate --color
+```
+```
 * 0841579 (HEAD -> second_set_branch) added to second set
 * 0d8e90d first edit in second set
 | * 9f2b69a (first_set_branch) added second file to first set
@@ -501,16 +652,30 @@ dhcp-10-157-4-224:practice_split howison$ git log --oneline --abbrev-commit --al
 
 So now we show three branches coming off at `f945961`: `master`, `first_set_branch`, and `second_set_branch`. Each of first_set_branch and second_set_branch have just the commits and files that they should:
 
+```sh
+git branch
 ```
-dhcp-10-157-4-224:practice_split howison$ git branch
+```
   first_set_branch
   master
 * second_set_branch
-dhcp-10-157-4-224:practice_split howison$ ls
+```
+```sh
+ls
+```
+```
 README           second_set_file  second_set_file2
-dhcp-10-157-4-224:practice_split howison$ git checkout first_set_branch
+```
+```sh
+git checkout first_set_branch
+```
+```
 Switched to branch 'first_set_branch'
-dhcp-10-157-4-224:practice_split howison$ ls
+```
+```sh
+ls
+```
+```
 README          first_set_file  first_set_file2
 ```
 
@@ -545,7 +710,7 @@ There are many options, here are two:
 First I created a copy of the repo, `practice_split_revert/`, so I could show both options. Then I switched to the `master` branch in that copy.
 
 ```
-dhcp-10-157-4-224:practice_split howison$ cd ..
+cd ..
 dhcp-10-157-4-224:PeerProduction howison$ cp -r practice_split practice_split_revert
 dhcp-10-157-4-224:PeerProduction howison$ cd practice_split_revert/
 dhcp-10-157-4-224:practice_split_revert howison$ git branch
@@ -685,10 +850,10 @@ Let's say that we create a repo and add a README, then add a SPECIAL_SECRET file
 
 ```
 SOI-A14570-Howison:PeerProduction howison$ cd practice_history_edit/
-SOI-A14570-Howison:practice_history_edit howison$ git init
+git init
 Initialized empty Git repository in /Users/howison/Documents/UTexas/Courses/PeerProduction/practice_history_edit/.git/
-SOI-A14570-Howison:practice_history_edit howison$ vi README
-SOI-A14570-Howison:practice_history_edit howison$ git status
+vi README
+git status
 On branch master
 
 No commits yet
@@ -699,18 +864,18 @@ Untracked files:
         README
 
 nothing added to commit but untracked files present (use "git add" to track)
-SOI-A14570-Howison:practice_history_edit howison$ git add README
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m "now we have a README"
+git add README
+git commit -m "now we have a README"
 [master (root-commit) f4878b0] now we have a README
  1 file changed, 1 insertion(+)
  create mode 100644 README
-SOI-A14570-Howison:practice_history_edit howison$ vi SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ git add *
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m "whoops added secret"
+vi SPECIAL_SECRET
+git add *
+git commit -m "whoops added secret"
 [master 018f6b5] whoops added secret
  1 file changed, 1 insertion(+)
  create mode 100644 SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ git log --oneline --abbrev-commit --all --graph --decorate --color
+git log --oneline --abbrev-commit --all --graph --decorate --color
 * 018f6b5 (HEAD -> master) whoops added secret
 * f4878b0 now we have a README
 ```
@@ -718,35 +883,35 @@ SOI-A14570-Howison:practice_history_edit howison$ git log --oneline --abbrev-com
 Now I'll go ahead and make one more edit to README
 
 ```
-SOI-A14570-Howison:practice_history_edit howison$ vi README
-SOI-A14570-Howison:practice_history_edit howison$ git add READMESOI-A14570-Howison:practice_history_edit howison$ git commit -m "README edit 2"[master 4d51f91] README edit 2
+vi README
+git add READMEgit commit -m "README edit 2"[master 4d51f91] README edit 2
  1 file changed, 1 insertion(+)
-SOI-A14570-Howison:practice_history_edit howison$ git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -> master) README edit 2
+git log --oneline --abbrev-commit --all --graph --decorate --color* 4d51f91 (HEAD -> master) README edit 2
 * 018f6b5 whoops added secret
 * f4878b0 now we have a README
-SOI-A14570-Howison:practice_history_edit howison$ ls
+ls
 README         SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ cat SPECIAL_SECRET
+cat SPECIAL_SECRET
 swordfish
 ```
 
 Ok, so we realize that the password file got into git and we swing into action and delete it from git.
 
 ```
-SOI-A14570-Howison:practice_history_edit howison$ git rm SPECIAL_SECRET
+git rm SPECIAL_SECRET
 rm 'SPECIAL_SECRET'
-SOI-A14570-Howison:practice_history_edit howison$ git commit -m "phew removed it, or did we"
+git commit -m "phew removed it, or did we"
 [master ff229ba] phew removed it, or did we
  1 file changed, 1 deletion(-)
  delete mode 100644 SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ ls
+ls
 README
 ```
 
 So now the file is not there.  Or rather it is not in our working directory.  The problem is that it is still inside out `.git` folder and we can get it out easily.
 
 ```
-SOI-A14570-Howison:practice_history_edit howison$ git checkout HEAD~1
+git checkout HEAD~1
 Note: checking out 'HEAD~1'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -759,8 +924,8 @@ do so (now or later) by using -b with the checkout command again. Example:
   git checkout -b <new-branch-name>
 
 HEAD is now at 4d51f91... README edit 2
-SOI-A14570-Howison:practice_history_edit howison$ lsREADME         SPECIAL_SECRET
-SOI-A14570-Howison:practice_history_edit howison$ cat SPECIAL_SECRET
+lsREADME         SPECIAL_SECRET
+cat SPECIAL_SECRET
 swordfish
 ```
 
