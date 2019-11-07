@@ -322,19 +322,19 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 So now we have a single commit on a single branch `master`.  To create a new file we can use `touch` (which creates an empty file here, but that's ok).
 
 ```sh
-touch README
+touch master2
 ```
 ```sh
-git add README
+git add master2
 ```
 ```sh
-git commit -m "editing readme"
+git commit -m "add master2"
 ```
 ```
-[master 749454e] editing readme
+[master 749454e] add master2
  1 file changed, 2 insertions(+)
 git log --oneline --abbrev-commit --all --graph --decorate --color
-* 749454e (HEAD -> master) editing readme
+* 749454e (HEAD -> master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -367,7 +367,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
 ```
 * d71ade9 (HEAD -> first_set_branch) first set edit
-* 749454e (master) editing readme
+* 749454e (master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -386,7 +386,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 ```
 ```
 * d71ade9 (first_set_branch) first set edit
-* 749454e (HEAD -> master) editing readme
+* 749454e (HEAD -> master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -421,7 +421,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * 9dc0a23 (HEAD -> second_set_branch) first edit in second set
 | * d71ade9 (first_set_branch) first set edit
 |/  
-* 749454e (master) editing readme
+* 749454e (master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -449,7 +449,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * 9dc0a23 first edit in second set
 | * d71ade9 (first_set_branch) first set edit
 |/  
-* 749454e (master) editing readme
+* 749454e (master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -465,7 +465,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * 9dc0a23 first edit in second set
 | * d71ade9 (HEAD -> first_set_branch) first set edit
 |/  
-* 749454e (master) editing readme
+* 749454e (master) add master2
 * d5eb1e8 Adding readme
 ```
 ```sh
@@ -494,7 +494,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 04d6967 (second_set_branch) added to second set
 | * 9dc0a23 first edit in second set
 |/  
-* 749454e (master) editing readme
+* 749454e (master) add master2
 * d5eb1e8 Adding readme
 ```
 
@@ -512,7 +512,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
 * 51f2622 first set edit
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 
@@ -536,7 +536,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 * dfa98b0 first edit in second set
 * 43bc368 added second file to first set
 * 51f2622 first set edit
-* f945961 (HEAD -> first_set_branch) editing readme
+* f945961 (HEAD -> first_set_branch) add master2
 * 367e25a Adding readme
 ```
 
@@ -563,7 +563,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 ```sh
@@ -586,7 +586,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 
@@ -611,7 +611,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 (HEAD -> second_set_branch) editing readme
+* f945961 (HEAD -> second_set_branch) add master2
 * 367e25a Adding readme
 ```
 ```sh
@@ -646,7 +646,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 
@@ -754,7 +754,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 
@@ -795,7 +795,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 9f2b69a (first_set_branch) added second file to first set
 | * ef2a3ee first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 ```sh
@@ -835,7 +835,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 43bc368 added second file to first set
 | * 51f2622 first set edit
 |/  
-* f945961 editing readme
+* f945961 add master2
 * 367e25a Adding readme
 ```
 
@@ -845,7 +845,7 @@ Now we use `git reset --hard` to force HEAD back to `f945961`. That disconnects 
 git reset --hard f945961
 ```
 ```
-HEAD is now at f945961 editing readme
+HEAD is now at f945961 add master2
 ```
 ```sh
 git log --oneline --abbrev-commit --all --graph --decorate --color
@@ -856,7 +856,7 @@ git log --oneline --abbrev-commit --all --graph --decorate --color
 | * 9f2b69a (first_set_branch) added second file to first set
 | * ef2a3ee first set edit
 |/  
-* f945961 (HEAD -> master) editing readme
+* f945961 (HEAD -> master) add master2
 * 367e25a Adding readme
 ```
 
