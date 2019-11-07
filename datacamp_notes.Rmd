@@ -30,3 +30,6 @@ Doesn't seem to be well motivated.  I suggest having a branch as a detail for on
 https://campus.datacamp.com/courses/introduction-to-git-for-data-science/working-with-branches?ex=8
 
 Not sure if it matters but the instructions don't tell you the desired final state for the paper.
+
+-------------------
+
