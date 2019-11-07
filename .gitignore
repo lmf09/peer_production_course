@@ -3,4 +3,4 @@
 .Rhistory
 .RData
 .Ruserdata
-exec_docker
+docker-compose.yml
