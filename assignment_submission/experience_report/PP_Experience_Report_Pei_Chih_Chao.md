@@ -1,8 +1,8 @@
-Citation Style: APA
-
 # Peer Production Participation Project
 
 ### The experience report: participating and describing the participation ###  
+
+(Citation Style: APA)
 
 Nowadays, many developers find their ways to contribute to the community. Some developers spend their time and knowledge to code for good; Some help more people to join the community by creating more comfortable ways to learn how to code. Most developers start their careers by following several tutorials to create "Hello, World!" programs, and I am no exception. Therefore, I always expect that I can help others, too. That is the reason why I choose to be a part of the MDN (Mozilla Developer Network) community, and I would like to devote my language ability to translate the content from English to Traditional Chinese.
 
